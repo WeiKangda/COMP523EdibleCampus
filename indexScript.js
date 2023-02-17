@@ -1,6 +1,6 @@
 // Map options, og location and zoom level
 let mapOptions = {
-    center: [35.9101,-79.0495],
+    center: [35.9079,-79.0484],
     zoom: 15
 }
 
@@ -12,8 +12,9 @@ let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
 map.addLayer(layer);
 
 function onMapdbClick(e) {
-    alert("You clicked the map at " + e.latlng);
+    var name = prompt("placed marker at: " + e.latlng);
     var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+    marker.bindPopup(name).openPopup();
 }
 
 map.on('dblclick', onMapdbClick);
