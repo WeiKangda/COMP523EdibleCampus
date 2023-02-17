@@ -10,3 +10,10 @@ let map = new L.map('map', mapOptions);
 // var for layer object, and add to map
 let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 map.addLayer(layer);
+
+function onMapdbClick(e) {
+    alert("You clicked the map at " + e.latlng);
+    var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+}
+
+map.on('dblclick', onMapdbClick);
