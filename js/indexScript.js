@@ -1,7 +1,9 @@
 // Map options, og location and zoom level
 let mapOptions = {
     center: [35.9079,-79.0484],
-    zoom: 15
+    zoom: 15,
+    height: 500,
+    width: '100%'
 }
 
 // Creating a map object
