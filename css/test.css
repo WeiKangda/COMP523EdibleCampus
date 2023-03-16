@@ -1,40 +1,53 @@
+/* Set margin and padding to zero for body */
 body {
-    margin: 0px;
-}
-#top{
+    margin: 0;
+    padding: 0;
+    }
+    
+    /* Set height and background color for top section */
+    #top {
     height: 20px;
-    background-color: #563C5B;;
-}
-#navbar{
+    background-color: #563C5B;
+    }
+    
+    /* Set font family, display and padding for navbar */
+    #navbar {
     font-family: 'Roboto', sans-serif;
     display: flex;
     padding: 20px;
-}
-#navbar img{
+    }
+    
+    /* Set height and adjust logo size for navbar image */
+    #navbar img {
     height: 10vh;
-}
-#map{
-    width:100%;
-    height: 500px;
-}
-h1{
-    /*border: 1px solid tomato;*/
-    font-size: 50;
+    max-width: 100%;
+    }
+    
+    /* Set width and height for map */
+    #map {
+    width: 100%;
+    height: 400px;
+    }
+    
+    /* Set font size and padding for h1 */
+    h1 {
+    font-size: 50px;
     padding: 30px;
-}
-#about {
+    }
+    
+    /* Set height, background color, display, align-items and justify-content for about section */
+    #about {
     height: 80vh;
     background-color: #563C5B;
     display: flex;
     align-items: center;
     justify-content: space-around;
-}
-#about h1{
+    }
+    
+    /* Set font family and color for h1 in about section */
+    #about h3, p {
     font-family: 'Roboto', sans-serif;
-    color: azure;
-}
-/*
-img{
-    border: 3px solid tomato;
-}
-*/
+    color: rgb(250, 247, 247);
+    text-align: center;
+    }
+
