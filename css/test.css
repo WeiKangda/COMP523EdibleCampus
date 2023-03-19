@@ -65,7 +65,7 @@ body {
 #navbar {
     font-family: 'Roboto', sans-serif;
     display: flex;
-    padding: 20px;
+    padding: 5px;
 }
 
 /* Set height and adjust logo size for navbar image */
