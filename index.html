@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--––––––––––––––––––––––––––––––––––––––––––––––––––-->
+<!-- Start of Head section -->
 <head>
     <title>test</title>
     <meta charset="UTF-8">
+    <!-- Load the Leaflet CSS file -->
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <!-- Set the viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/test.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="./font-awesome/css/all.css"> -->
+    <!-- Load the Font Awesome icons -->
     <script src="https://kit.fontawesome.com/72cea44b3e.js" crossorigin="anonymous"></script>
-
 </head>
+<!-- End of Head section -->
 
-
+<!-- Start of Body section -->
 <body>
+    <!-- Top section -->
     <div id="top">
+        <!-- Social icons section -->
         <div id="social-icons">
             <a href="http://www.facebook.com/NCBotanicalGarden" target="_blank" aria-label="Botanical Garden Facebook"><i class="fab fa-facebook-f fa-xl"></i></a>
             <a href="https://twitter.com/ncbotanicalgdn" target="_blank" aria-label="Botanical Garden Twitter"><i class="fab fa-twitter fa-xl"></i></a>
             <a href="https://www.instagram.com/ncbotanicalgarden/" target="_blank" aria-label="Botanical Garden Instagram"><i class="fab fa-instagram fa-xl"></i></a>
         </div>
+        <!-- Search bar section -->
         <div id="search-bar">
-            <form>
-                <input type="text" placeholder="Search...">
+            <!-- Search form -->
+            <form method="get" id="searchform" action="https://ncbg.unc.edu/" role="search">
+                <input type="text" placeholder="Search..." name="s">
                 <button type="submit"><i class="fa fa-search fa-xl"></i></button>
             </form>
         </div>
     </div>
 
+    <!-- Navbar section -->
     <div id="navbar">
         <a href = "https://ncbg.unc.edu/" alt="bLogo"><img src="./images/EC_logo.jpg"></a>
     </div>
 
-<!-- This is the map section of the webpage. It includes the Leaflet map object. -->
+    <!-- Map section -->
     <div id="map"></div>
     <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script src="/js/indexScript.js"></script>
 
-<!-- This is the about section of the webpage. It includes the information about the UNC Edible Campus Map. -->
+    <!-- About section -->
     <div id="about">
         <div class="container">
             <h3>About the UNC Edible Campus Map</h3>
             <p>The UNC Edible Campus Map is a project that aims to provide information about edible plants available on the UNC Chapel Hill campus. The map shows the locations of edible plants and allows users to add comments and information about the plants.</p>
         </div>
-     </div>
-
+    </div>
 </body>
-
-
+<!-- End of Body section -->
 </html>
 
