@@ -54,7 +54,7 @@ body {
     right: 0;
     background: transparent;
     border: none;
-    height: 40px; /* Set the same height as the input */
+    height: 40px; 
 }
 
 #search-bar button i {
