@@ -1,7 +1,7 @@
 // Map options, og location and zoom level
 let mapOptions = {
-    center: [35.9079,-79.0484],
-    zoom: 15,
+    center: [35.9115137,-79.0476156],
+    zoom: 17,
     height: 500,
     width: '100%'
 }
@@ -15,6 +15,15 @@ let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     maxZoom: 18,
 });
 map.addLayer(layer);
+
+// add a pplygon for the main garden and a popup label for it
+const polygon = L.polygon([ 
+    [35.911357, -79.047555],
+    [35.911440, -79.047320],
+    [35.911630, -79.047447],
+    [35.911545, -79.047662]
+]).addTo(map).bindPopup('Main Garden.').openPopup();
+
 
 function onMapdbClick(e) {
     var name = prompt("placed marker at: " + e.latlng);
