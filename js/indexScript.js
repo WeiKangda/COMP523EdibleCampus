@@ -25,6 +25,13 @@ const polygon = L.polygon([
     [35.911545, -79.047662]
 ]).addTo(map).bindPopup('Main Garden.').openPopup();
 
+const fetzer = L.polygon([
+    [35.909124, -79.046470],
+    [35.909135, -79.046414],
+    [35.909283, -79.046460],
+    [35.909271, -79.046508]
+]).addTo(map).bindPopup('fetzer');
+
 
 function onMapdbClick(e) {
     var name = prompt("placed marker at: " + e.latlng);
