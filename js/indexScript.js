@@ -1,7 +1,7 @@
 // Map options, og location and zoom level
 let mapOptions = {
     center: [35.9115137,-79.0476156],
-    zoom: 18,
+    zoom: 17,
     height: 500,
     width: '100%'
 }
@@ -33,15 +33,17 @@ function onMapdbClick(e) {
 }
 
 map.on('dblclick', onMapdbClick);
-
 polygon.on('click', openPlant);
-polygon.on('dbclick', closePlant);
-
 
 function openPlant() {
-    document.getElementById("about").style.width = '100%';
-  }
+    //document.getElementById("about").style.backgroundColor = '#ff6347';
+    document.getElementById("plantTab").style.width = '100%';
+    document.getElementById("map").style.height = "0vh";
+    
+
+}
   
-  function closePlant() {
-    document.getElementById("about").style.backgroundColor = '#563C5B';
-  }
+function closePlant() {
+    document.getElementById("plantTab").style.width = "0%";
+    document.getElementById("map").style.height = "80vh";
+}

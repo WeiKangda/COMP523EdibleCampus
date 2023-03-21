@@ -70,7 +70,7 @@ body {
 
 /* Set height and adjust logo size for navbar image */
 #navbar img {
-    height: 10vh;
+    height: 15vh;
     max-width: 100%;
 }
 
@@ -102,3 +102,33 @@ h1 {
     color: rgb(250, 247, 247);
     text-align: center;
 }
+
+
+
+/*trying out some stuff */
+.overlay {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .overlay-content {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .overlay a {
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
