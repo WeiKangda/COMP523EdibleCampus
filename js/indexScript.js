@@ -16,12 +16,13 @@ let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 });
 map.addLayer(layer);
 
+
+// add a pplygon for the main garden and a popup label for it
 const polygon = L.polygon([ 
     [35.911357, -79.047555],
     [35.911440, -79.047320],
     [35.911630, -79.047447],
     [35.911545, -79.047662]
-    
 ]).addTo(map).bindPopup('Main Garden.').openPopup();
 
 
