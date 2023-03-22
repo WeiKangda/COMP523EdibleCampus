@@ -16,6 +16,51 @@ let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 });
 map.addLayer(layer);
 
+const graham = L.polygon([
+    [35.913114, -79.047187],
+    [35.913163, -79.047168],
+    [35.913171, -79.047112],
+    [35.913149, -79.047073],
+    [35.913105, -79.047094] 
+]).addTo(map).bindPopup('graham');
+
+const stacy = L.polygon([
+    [35.912904, -79.045814],
+    [35.912939, -79.045819],
+    [35.912961, -79.045734],
+    [35.912902, -79.045694],
+    [35.912867, -79.045712] 
+]).addTo(map).bindPopup('stacy');
+
+const davis = L.polygon([
+    [35.910711, -79.048374] 
+]).addTo(map).bindPopup('davis');
+
+const lenoir = L.polygon([
+    [35.910309, -79.048552] 
+]).addTo(map).bindPopup('lenoir');
+
+const rams_head_plaza = L.polygon([
+    [35.905647, -79.045832],
+    [35.905626, -79.045843],
+    [35.905683, -79.045986],
+    [35.905700, -79.045975]
+]).addTo(map).bindPopup('rams head plaza');
+
+const SASB_plaza = L.polygon([
+    [35.904384, -79.044850],
+    [35.904407, -79.044804],
+    [35.904367, -79.044742],
+    [35.904359, -79.044761]
+]).addTo(map).bindPopup('SASB plaza');
+
+const hardin = L.polygon([
+    [35.903815, -79.046311],
+    [35.903853, -79.046303],
+    [35.903861, -79.046225],
+    [35.903832, -79.046223]
+]).addTo(map).bindPopup('hardin');
+
 const fetzer = L.polygon([
     [35.909124, -79.046470],
     [35.909135, -79.046414],
@@ -30,6 +75,8 @@ const main_garden = L.polygon([
     [35.911630, -79.047447],
     [35.911545, -79.047662]
 ]).addTo(map).bindPopup('Main Garden.').openPopup();
+
+
 
 // Add an event listener for the "Center on Fetzer" button
 document.getElementById("centerFetzerBtn").addEventListener("click", centerOnFetzer);
