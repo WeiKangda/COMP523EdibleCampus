@@ -11,10 +11,61 @@ let map = new L.map('map', mapOptions);
 
 // var for layer object, and add to map
 let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
     maxZoom: 18,
 });
 map.addLayer(layer);
+
+const graham = L.polygon([
+    [35.913114, -79.047187],
+    [35.913163, -79.047168],
+    [35.913171, -79.047112],
+    [35.913149, -79.047073],
+    [35.913105, -79.047094] 
+]).addTo(map).bindPopup('graham');
+
+const stacy = L.polygon([
+    [35.912904, -79.045814],
+    [35.912939, -79.045819],
+    [35.912961, -79.045734],
+    [35.912902, -79.045694],
+    [35.912867, -79.045712] 
+]).addTo(map).bindPopup('stacy');
+
+const davis = L.polygon([
+    [35.910711, -79.048374],
+    [35.910720, -79.048380],
+    [35.910692, -79.048366],
+    [35.910644, -79.048386] 
+]).addTo(map).bindPopup('davis');
+
+const lenoir = L.polygon([
+    [35.910369, -79.048509], 
+    [35.910386, -79.048453],
+    [35.910356, -79.048434],
+    [35.910337, -79.048490]
+]).addTo(map).bindPopup('lenoir');
+
+const rams_head_plaza = L.polygon([
+    [35.905647, -79.045832],
+    [35.905626, -79.045843],
+    [35.905683, -79.045986],
+    [35.905700, -79.045975]
+]).addTo(map).bindPopup('rams head plaza');
+
+const SASB_plaza = L.polygon([
+    [35.904384, -79.044850],
+    [35.904407, -79.044804],
+    [35.904367, -79.044742],
+    [35.904359, -79.044761]
+]).addTo(map).bindPopup('SASB plaza');
+
+const hardin = L.polygon([
+    [35.903815, -79.046311],
+    [35.903853, -79.046303],
+    [35.903861, -79.046225],
+    [35.903832, -79.046223]
+]).addTo(map).bindPopup('hardin');
 
 const fetzer = L.polygon([
     [35.909124, -79.046470],
@@ -54,7 +105,7 @@ document.getElementById("centerFetzerBtn").addEventListener("click", centerOnFet
 function centerOnFetzer() {
     // Center the map on Fetzer's coordinates
     const fetzerCoords = [35.909124, -79.046470];
-    map.setView(fetzerCoords, 17);
+    map.setView(fetzerCoords, 18);
 
     // Open Fetzer's popup
     fetzer.openPopup();
@@ -66,7 +117,7 @@ document.getElementById("centerMainGardenBtn").addEventListener("click", centerO
 function centerOnMainGarden() {
     // Center the map on Main Garden's coordinates
     const mainGardenCoords = [35.911437, -79.047336];
-    map.setView(mainGardenCoords, 17);
+    map.setView(mainGardenCoords, 18);
 
     // Open Main Garden's popup
     main_garden.openPopup();
