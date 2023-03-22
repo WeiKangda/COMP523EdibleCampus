@@ -11,7 +11,7 @@ let map = new L.map('map', mapOptions);
 
 // var for layer object, and add to map
 let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
     maxZoom: 18,
 });
 map.addLayer(layer);
@@ -33,11 +33,17 @@ const stacy = L.polygon([
 ]).addTo(map).bindPopup('stacy');
 
 const davis = L.polygon([
-    [35.910711, -79.048374] 
+    [35.910711, -79.048374],
+    [35.910720, -79.048380],
+    [35.910692, -79.048366],
+    [35.910644, -79.048386] 
 ]).addTo(map).bindPopup('davis');
 
 const lenoir = L.polygon([
-    [35.910309, -79.048552] 
+    [35.910369, -79.048509], 
+    [35.910386, -79.048453],
+    [35.910356, -79.048434],
+    [35.910337, -79.048490]
 ]).addTo(map).bindPopup('lenoir');
 
 const rams_head_plaza = L.polygon([
@@ -76,15 +82,13 @@ const main_garden = L.polygon([
     [35.911545, -79.047662]
 ]).addTo(map).bindPopup('Main Garden.').openPopup();
 
-
-
 // Add an event listener for the "Center on Fetzer" button
 document.getElementById("centerFetzerBtn").addEventListener("click", centerOnFetzer);
 
 function centerOnFetzer() {
     // Center the map on Fetzer's coordinates
     const fetzerCoords = [35.909124, -79.046470];
-    map.setView(fetzerCoords, 17);
+    map.setView(fetzerCoords, 18);
 
     // Open Fetzer's popup
     fetzer.openPopup();
@@ -96,7 +100,7 @@ document.getElementById("centerMainGardenBtn").addEventListener("click", centerO
 function centerOnMainGarden() {
     // Center the map on Main Garden's coordinates
     const mainGardenCoords = [35.911437, -79.047336];
-    map.setView(mainGardenCoords, 17);
+    map.setView(mainGardenCoords, 18);
 
     // Open Main Garden's popup
     main_garden.openPopup();
