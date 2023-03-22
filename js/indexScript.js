@@ -31,6 +31,23 @@ const main_garden = L.polygon([
     [35.911545, -79.047662]
 ]).addTo(map).bindPopup('Main Garden.').openPopup();
 
+const lenoir = L.polygon([
+    [35.910275, -79.048656],
+    [35.910261, -79.048648],
+    [35.910281, -79.048594],
+    [35.910295, -79.048603],
+
+    [35.910310, -79.048563],
+    [35.910297, -79.048555],
+    [35.910330, -79.048512],
+    [35.910316, -79.048504],
+
+    [35.910337, -79.048489],
+    [35.910357, -79.048500],
+    [35.910360, -79.048475],
+    [35.910347, -79.048453]
+]).addTo(map).bindPopup('Lenoir');
+
 // Add an event listener for the "Center on Fetzer" button
 document.getElementById("centerFetzerBtn").addEventListener("click", centerOnFetzer);
 
@@ -53,6 +70,16 @@ function centerOnMainGarden() {
 
     // Open Main Garden's popup
     main_garden.openPopup();
+}
+
+// Add an event listener for the "Center on Lenoir" button
+document.getElementById("centerLenoirBtn").addEventListener("click", centerOnLenoir);
+
+function centerOnLenoir() {
+    const lenoirCenter = [35.910299, -79.048571];
+    map.setView(lenoirCenter, 17)
+
+    lenoir.openPopup();
 }
 
 function onMapdbClick(e) {
