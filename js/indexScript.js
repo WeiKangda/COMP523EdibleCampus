@@ -23,15 +23,6 @@ const fetzer = L.polygon([
     [35.909271, -79.046508]
 ]).addTo(map).bindPopup('fetzer');
 
-function centerOnFetzer() {
-    // Center the map on Fetzer's coordinates
-    const fetzerCoords = [35.909124, -79.046470];
-    map.setView(fetzerCoords, 17);
-
-    // Open Fetzer's popup
-    fetzer.openPopup();
-}
-
 // Add a polygon for the main garden and a popup label for it
 const main_garden = L.polygon([ 
     [35.911357, -79.047555],
@@ -43,6 +34,16 @@ const main_garden = L.polygon([
 // Add an event listener for the "Center on Fetzer" button
 document.getElementById("centerFetzerBtn").addEventListener("click", centerOnFetzer);
 
+function centerOnFetzer() {
+    // Center the map on Fetzer's coordinates
+    const fetzerCoords = [35.909124, -79.046470];
+    map.setView(fetzerCoords, 17);
+
+    // Open Fetzer's popup
+    fetzer.openPopup();
+}
+
+// Add an event listener for the "Center on Main_garden" button
 document.getElementById("centerMainGardenBtn").addEventListener("click", centerOnMainGarden);
 
 function centerOnMainGarden() {
@@ -60,16 +61,15 @@ function onMapdbClick(e) {
     marker.bindPopup(name).openPopup();
 }
 
-map.on('dblclick', onMapdbClick);
+// map.on('dblclick', onMapdbClick);
 
 main_garden.on('click', openPlant);
 
 function openPlant() {
     //document.getElementById("about").style.backgroundColor = '#ff6347';
+    console.log('openPlant function called!');
     document.getElementById("plantTab").style.width = '100%';
     document.getElementById("map").style.height = "0vh";
-    
-
 }
   
 function closePlant() {
