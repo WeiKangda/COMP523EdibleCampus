@@ -21,7 +21,7 @@ const fetzer = L.polygon([
     [35.909135, -79.046414],
     [35.909283, -79.046460],
     [35.909271, -79.046508]
-]).addTo(map).bindPopup('fetzer');
+]).addTo(map).bindPopup('Fetzer');
 
 function centerOnFetzer() {
     // Center the map on Fetzer's coordinates
@@ -38,7 +38,7 @@ const main_garden = L.polygon([
     [35.911437, -79.047336],
     [35.911630, -79.047447],
     [35.911545, -79.047662]
-]).addTo(map).bindPopup('Main Garden.').openPopup();
+]).addTo(map).bindPopup('Main Garden').openPopup();
 
 // Add an event listener for the "Center on Fetzer" button
 document.getElementById("centerFetzerBtn").addEventListener("click", centerOnFetzer);
@@ -68,8 +68,6 @@ function openPlant() {
     //document.getElementById("about").style.backgroundColor = '#ff6347';
     document.getElementById("plantTab").style.width = '100%';
     document.getElementById("map").style.height = "0vh";
-    
-
 }
   
 function closePlant() {
