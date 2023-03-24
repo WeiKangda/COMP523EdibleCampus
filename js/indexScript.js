@@ -135,6 +135,65 @@ function centerOnLenoir() {
     lenoir.openPopup();
 }
 
+// Add an event listener for the "Center on Graham" button
+document.getElementById("centerGrahamBtn").addEventListener("click", centerOnGraham);
+
+function centerOnGraham() {
+    const grahamCenter = [35.913140, -79.047127];
+    map.setView(grahamCenter, 17)
+
+    graham.openPopup();
+}
+
+// Add an event listener for the "Center on Stacy" button
+document.getElementById("centerStacyBtn").addEventListener("click", centerOnStacy);
+
+function centerOnStacy() {
+    const stacyCenter = [35.912915, -79.045755];
+    map.setView(stacyCenter, 17)
+
+    stacy.openPopup();
+}
+
+// Add an event listener for the "Center on Davis" button
+document.getElementById("centerDavisBtn").addEventListener("click", centerOnDavis);
+
+function centerOnDavis() {
+    const davisCenter = [35.910692, -79.048377];
+    map.setView(davisCenter, 17)
+
+    davis.openPopup();
+}
+
+// Add an event listener for the "Center on Hardin" button
+document.getElementById("centerHardinBtn").addEventListener("click", centerOnHardin);
+
+function centerOnHardin() {
+    const hardinCenter = [35.903840, -79.046266];
+    map.setView(hardinCenter, 17)
+
+    hardin.openPopup();
+}
+
+// Add an event listener for the "Center on Rams Head Plaza" button
+document.getElementById("centerRamsHeadPlazaBtn").addEventListener("click", centerOnRamsHeadPlaza);
+
+function centerOnRamsHeadPlaza() {
+    const ramsHeadPlazaCenter = [35.905664, -79.045909];
+    map.setView(ramsHeadPlazaCenter, 17)
+
+    rams_head_plaza.openPopup();
+}
+
+// Add an event listener for the "Center on SASB Plaza" button
+document.getElementById("centerSASBPlazaBtn").addEventListener("click", centerOnSASBPlaza);
+
+function centerOnSASBPlaza() {
+    const sasbPlazaCenter = [35.904380, -79.044790];
+    map.setView(sasbPlazaCenter, 17)
+
+    SASB_plaza.openPopup();
+}
 function onMapdbClick(e) {
     var name = prompt("placed marker at: " + e.latlng);
     var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
