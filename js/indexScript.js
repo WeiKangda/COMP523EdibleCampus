@@ -46,6 +46,13 @@ const davis = L.polygon([
 //     [35.910337, -79.048490]
 // ]).addTo(map).bindPopup('lenoir');
 
+// const lenoir = L.polygon([
+//     [35.910369, -79.048509], 
+//     [35.910386, -79.048453],
+//     [35.910356, -79.048434],
+//     [35.910337, -79.048490]
+// ]).addTo(map).bindPopup('lenoir');
+
 const lenoir = L.polygon([
     [35.910275, -79.048656],
     [35.910261, -79.048648],
@@ -97,33 +104,32 @@ const main_garden = L.polygon([
     [35.911437, -79.047336],
     [35.911630, -79.047447],
     [35.911545, -79.047662]
-]).addTo(map).bindPopup('Main Garden.').openPopup();
+]).addTo(map).bindPopup('Main Garden.');
 
 
 
-// Add an event listener for the "Center on Fetzer" button
-document.getElementById("centerFetzerBtn").addEventListener("click", centerOnFetzer);
+// // Add an event listener for the "Center on Fetzer" button
+// document.getElementById("centerFetzerBtn").addEventListener("click", centerOnFetzer);
 
-function centerOnFetzer() {
-    // Center the map on Fetzer's coordinates
-    const fetzerCoords = [35.909124, -79.046470];
-    map.setView(fetzerCoords, 18);
+// function centerOnFetzer() {
+//     // Center the map on Fetzer's coordinates
+//     const fetzerCoords = [35.909124, -79.046470];
+//     map.setView(fetzerCoords, 18);
 
-    // Open Fetzer's popup
-    fetzer.openPopup();
-}
+//     // Open Fetzer's popup
+//     fetzer.openPopup();
+// }
 
-// Add an event listener for the "Center on Main_garden" button
-document.getElementById("centerMainGardenBtn").addEventListener("click", centerOnMainGarden);
 
-function centerOnMainGarden() {
-    // Center the map on Main Garden's coordinates
-    const mainGardenCoords = [35.911437, -79.047336];
-    map.setView(mainGardenCoords, 18);
+// // Add an event listener for the "Center on Lenoir" button
+// document.getElementById("centerLenoirBtn").addEventListener("click", centerOnLenoir);
 
-    // Open Main Garden's popup
-    main_garden.openPopup();
-}
+// function centerOnLenoir() {
+//     const lenoirCenter = [35.910299, -79.048571];
+//     map.setView(lenoirCenter, 17)
+
+//     lenoir.openPopup();
+// }
 
 // Add an event listener for the "Center on Lenoir" button
 document.getElementById("centerLenoirBtn").addEventListener("click", centerOnLenoir);
