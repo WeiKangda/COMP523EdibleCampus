@@ -144,8 +144,8 @@ h1 {
     margin-right: 25px;
     width: 150px;
     position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+    top: 50%;
+    transform: translateY(-50%);
   }
 
 .dropdown-content {
@@ -155,6 +155,7 @@ h1 {
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
+    transform: translateY(12%);
 }
 
 .dropdown-content a {
