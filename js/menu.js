@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
             gardenElement = rams_head_plaza;
             gardenName = "Rams Head Plaza Garden";
           } else if (garden === "SASBPlaza") {
-            gardenCoords = [35.904384, -79.044850];
+            gardenCoords = [35.904367, -79.044742];
             gardenElement = SASB_plaza;
             gardenName = "SASB Plaza Garden";
           } else if (garden === "hardin") {
