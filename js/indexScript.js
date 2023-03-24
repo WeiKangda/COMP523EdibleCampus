@@ -22,7 +22,7 @@ const graham = L.polygon([
     [35.913171, -79.047112],
     [35.913149, -79.047073],
     [35.913105, -79.047094] 
-]).addTo(map).bindPopup('graham');
+]).addTo(map).bindPopup('Graham');
 
 const stacy = L.polygon([
     [35.912904, -79.045814],
@@ -30,14 +30,21 @@ const stacy = L.polygon([
     [35.912961, -79.045734],
     [35.912902, -79.045694],
     [35.912867, -79.045712] 
-]).addTo(map).bindPopup('stacy');
+]).addTo(map).bindPopup('Stacy');
 
 const davis = L.polygon([
     [35.910711, -79.048374],
     [35.910720, -79.048380],
     [35.910692, -79.048366],
     [35.910644, -79.048386] 
-]).addTo(map).bindPopup('davis');
+]).addTo(map).bindPopup('Davis');
+
+// const lenoir = L.polygon([
+//     [35.910369, -79.048509], 
+//     [35.910386, -79.048453],
+//     [35.910356, -79.048434],
+//     [35.910337, -79.048490]
+// ]).addTo(map).bindPopup('lenoir');
 
 // const lenoir = L.polygon([
 //     [35.910369, -79.048509], 
@@ -68,28 +75,28 @@ const rams_head_plaza = L.polygon([
     [35.905626, -79.045843],
     [35.905683, -79.045986],
     [35.905700, -79.045975]
-]).addTo(map).bindPopup('rams head plaza');
+]).addTo(map).bindPopup('Rams Head Plaza');
 
 const SASB_plaza = L.polygon([
     [35.904384, -79.044850],
     [35.904407, -79.044804],
     [35.904367, -79.044742],
     [35.904359, -79.044761]
-]).addTo(map).bindPopup('SASB plaza');
+]).addTo(map).bindPopup('SASB Plaza');
 
 const hardin = L.polygon([
     [35.903815, -79.046311],
     [35.903853, -79.046303],
     [35.903861, -79.046225],
     [35.903832, -79.046223]
-]).addTo(map).bindPopup('hardin');
+]).addTo(map).bindPopup('Hardin');
 
 const fetzer = L.polygon([
     [35.909124, -79.046470],
     [35.909135, -79.046414],
     [35.909283, -79.046460],
     [35.909271, -79.046508]
-]).addTo(map).bindPopup('fetzer');
+]).addTo(map).bindPopup('Fetzer');
 
 // Add a polygon for the main garden and a popup label for it
 const main_garden = L.polygon([ 
@@ -98,6 +105,7 @@ const main_garden = L.polygon([
     [35.911630, -79.047447],
     [35.911545, -79.047662]
 ]).addTo(map).bindPopup('Main Garden.');
+
 
 
 // // Add an event listener for the "Center on Fetzer" button
@@ -123,6 +131,75 @@ const main_garden = L.polygon([
 //     lenoir.openPopup();
 // }
 
+// Add an event listener for the "Center on Lenoir" button
+document.getElementById("centerLenoirBtn").addEventListener("click", centerOnLenoir);
+
+function centerOnLenoir() {
+    const lenoirCenter = [35.910299, -79.048571];
+    map.setView(lenoirCenter, 17)
+
+    lenoir.openPopup();
+}
+
+// Add an event listener for the "Center on Graham" button
+document.getElementById("centerGrahamBtn").addEventListener("click", centerOnGraham);
+
+function centerOnGraham() {
+    const grahamCenter = [35.913140, -79.047127];
+    map.setView(grahamCenter, 17)
+
+    graham.openPopup();
+}
+
+// Add an event listener for the "Center on Stacy" button
+document.getElementById("centerStacyBtn").addEventListener("click", centerOnStacy);
+
+function centerOnStacy() {
+    const stacyCenter = [35.912915, -79.045755];
+    map.setView(stacyCenter, 17)
+
+    stacy.openPopup();
+}
+
+// Add an event listener for the "Center on Davis" button
+document.getElementById("centerDavisBtn").addEventListener("click", centerOnDavis);
+
+function centerOnDavis() {
+    const davisCenter = [35.910692, -79.048377];
+    map.setView(davisCenter, 17)
+
+    davis.openPopup();
+}
+
+// Add an event listener for the "Center on Hardin" button
+document.getElementById("centerHardinBtn").addEventListener("click", centerOnHardin);
+
+function centerOnHardin() {
+    const hardinCenter = [35.903840, -79.046266];
+    map.setView(hardinCenter, 17)
+
+    hardin.openPopup();
+}
+
+// Add an event listener for the "Center on Rams Head Plaza" button
+document.getElementById("centerRamsHeadPlazaBtn").addEventListener("click", centerOnRamsHeadPlaza);
+
+function centerOnRamsHeadPlaza() {
+    const ramsHeadPlazaCenter = [35.905664, -79.045909];
+    map.setView(ramsHeadPlazaCenter, 17)
+
+    rams_head_plaza.openPopup();
+}
+
+// Add an event listener for the "Center on SASB Plaza" button
+document.getElementById("centerSASBPlazaBtn").addEventListener("click", centerOnSASBPlaza);
+
+function centerOnSASBPlaza() {
+    const sasbPlazaCenter = [35.904380, -79.044790];
+    map.setView(sasbPlazaCenter, 17)
+
+    SASB_plaza.openPopup();
+}
 function onMapdbClick(e) {
     var name = prompt("placed marker at: " + e.latlng);
     var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
