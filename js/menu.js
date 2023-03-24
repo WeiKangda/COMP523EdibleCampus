@@ -55,16 +55,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     centerDavisGarden.addEventListener("click", function (event) {
+      // console.log("davis button clicked");
         centerOnGarden("davis");
         dropdownContent.style.display = "none";
     });
 
     centerRamsHeadPlazaGarden.addEventListener("click", function (event) {
+      // console.log("rams Plaza button clicked");
         centerOnGarden("ramsHeadPlaza");
         dropdownContent.style.display = "none";
     });
 
     centerSASBPlazaGarden.addEventListener("click", function (event) {
+      // console.log("SASB Plaza button clicked");
         centerOnGarden("SASBPlaza");
         dropdownContent.style.display = "none";
     });
@@ -110,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             gardenName = "Rams Head Plaza Garden";
           } else if (garden === "SASBPlaza") {
             gardenCoords = [35.904384, -79.044850];
-            gardenElement = sasb_plaza;
+            gardenElement = SASB_plaza;
             gardenName = "SASB Plaza Garden";
           } else if (garden === "hardin") {
             gardenCoords = [35.903815, -79.046311];

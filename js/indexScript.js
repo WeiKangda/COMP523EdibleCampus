@@ -99,6 +99,30 @@ const main_garden = L.polygon([
     [35.911545, -79.047662]
 ]).addTo(map).bindPopup('Main Garden.');
 
+
+// // Add an event listener for the "Center on Fetzer" button
+// document.getElementById("centerFetzerBtn").addEventListener("click", centerOnFetzer);
+
+// function centerOnFetzer() {
+//     // Center the map on Fetzer's coordinates
+//     const fetzerCoords = [35.909124, -79.046470];
+//     map.setView(fetzerCoords, 18);
+
+//     // Open Fetzer's popup
+//     fetzer.openPopup();
+// }
+
+
+// // Add an event listener for the "Center on Lenoir" button
+// document.getElementById("centerLenoirBtn").addEventListener("click", centerOnLenoir);
+
+// function centerOnLenoir() {
+//     const lenoirCenter = [35.910299, -79.048571];
+//     map.setView(lenoirCenter, 17)
+
+//     lenoir.openPopup();
+// }
+
 function onMapdbClick(e) {
     var name = prompt("placed marker at: " + e.latlng);
     var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
