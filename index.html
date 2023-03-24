@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Load the custom CSS file -->
     <link href="css/test.css" rel="stylesheet">
+
     <!-- Load the Font Awesome icons -->
     <script src="https://kit.fontawesome.com/72cea44b3e.js" crossorigin="anonymous"></script>
 </head>
@@ -38,16 +39,32 @@
     <!-- Navbar section -->
     <div id="navbar">
         <a href = "https://ncbg.unc.edu/" alt="bLogo"><img src="./img/EC_logo.jpg"></a>
-        <button id="centerFetzerBtn">Center on Fetzer</button>
+        <!-- <button id="centerFetzerBtn">Center on Fetzer</button>
         <button id="centerMainGardenBtn">Center on Main Garden</button>
-        <button id="centerLenoirBtn">Center on Lenoir</button>
+        <button id="centerLenoirBtn">Center on Lenoir</button> -->
+        <div class="dropdown">
+            <button class="dropbtn" id="menuButton">Menu</button>
+            <div class="dropdown-content">
+                <a href="#" id="centerMainGarden">Main Garden</a>
+                <a href="#" id="centerLenoir">Lenoir Garden</a>
+                <a href="#" id="centerGraham">Graham</a>
+                <a href="#" id="centerStacy">Stacy</a>
+                <a href="#" id="centerDavis">Davis</a>
+                <a href="#" id="centerRamsHeadPlaza">Rams Head Plaza</a>
+                <a href="#" id="centerSASBPlaza">SASB Plaza</a>
+                <a href="#" id="centerHardin">Hardin</a>
+                <a href="#" id="centerFetzer">Fetzer</a>
+            </div>
+        </div>
     </div>
 
     <!-- Map section -->
     <div id="map"></div>
     <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-    <script src="/js/indexScript.js"></script>
-
+    <!-- <script src="js/indexScript.js" type="module"></script>
+    <script src="js/menu.js" type="module"></script> -->
+    <script src="js/indexScript.js" ></script>
+    <script src="js/menu.js" ></script>
     <!-- About section -->
     <div id="about">
         <div class="container">
