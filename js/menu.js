@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // let gardenCoords;
     // let gardenName;
     let gardenCoords, gardenElement, gardenName, gardenImageSrc, offset;
+    gardenImageSrc = "./img/EC_Logo.jpg"
     offset = [0, 0];
 
     if (garden === "main") {
