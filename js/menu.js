@@ -85,16 +85,20 @@ document.addEventListener("DOMContentLoaded", function () {
   function centerOnGarden(garden) {
     // let gardenCoords;
     // let gardenName;
-    let gardenCoords, gardenElement, gardenName;
+    let gardenCoords, gardenElement, gardenName, gardenImageSrc, offset;
+    offset = [0, 0];
 
     if (garden === "main") {
       gardenCoords = [35.911437, -79.047336];
       gardenElement = main_garden;
       gardenName = "Main Garden";
+      gardenImageSrc = "./img/main_garden.jpg";
     } else if (garden === "lenoir") {
       gardenCoords = [35.910299, -79.048571];
       gardenElement = lenoir;
       gardenName = "Lenoir Garden";
+      gardenImageSrc = "./img/Lenoir.jpeg";
+      offset = [15, -10];
     } else if (garden === "graham") {
       gardenCoords = [35.913114, -79.047187];
       gardenElement = graham;
@@ -107,6 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
       gardenCoords = [35.910711, -79.048374];
       gardenElement = davis;
       gardenName = "Davis Garden";
+      gardenImageSrc = "./img/Davis.jpeg";
+
     } else if (garden === "ramsHeadPlaza") {
       gardenCoords = [35.905647, -79.045832];
       gardenElement = rams_head_plaza;
@@ -135,6 +141,9 @@ document.addEventListener("DOMContentLoaded", function () {
     .once('moveend', () => {
         map.flyTo(gardenCoords, zoomInLevel, { animate: true, duration: 1 })
             .once('moveend', () => {
+              //  gardenElement.bindPopup(`<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image"><p class="popup-text">${gardenName}</p>`, { className: 'custom-popup', offset: offset });
+            gardenElement.bindPopup(`<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image"><p class="popup-text">${gardenName}</p>`, { className: 'custom-popup', offset: offset } );
+
               gardenElement.openPopup();
             });
     });
