@@ -131,8 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
       gardenName = "Fetzer Garden";
     }
 
-    // map.setView(gardenCoords, 18);
-    // gardenElement.bindPopup(gardenName, { closeOnClick: false }).openPopup();
     const currentZoom = map.getZoom();
     const zoomOutLevel = currentZoom - 1;
     const zoomInLevel = 18;
@@ -172,7 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
               // Remove the event listener to prevent multiple routes
               map.off("locationfound", onLocationFound);
 
-              
+              // Update routing control with user's current location and garden location
+              // updateRoutingControl(e, gardenCoords);
 
               // Add routing control with user's current location and garden location
               window.routingControl = L.Routing.control({
