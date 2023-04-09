@@ -1,3 +1,5 @@
+//this is menu_popup.css file
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -64,16 +66,18 @@
 }
 
 .popup-text {
-  color: #000; /* Or any color you want */
+  font-size: 15px;
+  font-weight: bold;
+  color: #563c5b;
 }
 
 .custom-popup .leaflet-popup-content {
-  width: 150px !important;
+  width: 120px !important;
   padding: 0 !important;
 }
 
 .custom-popup .leaflet-popup-content-wrapper {
-  padding: 5px;
+  padding: 1px;
   background-color: #f9f9f9; /* You can change this to your desired background color */
 }
 
@@ -85,7 +89,7 @@
   cursor: pointer;
   font-size: 12px;
   margin-top: 10px;
-  padding: 5px 10px;
+  padding: 3px 10px;
   text-align: center;
   text-decoration: none;
   transition: background-color 0.3s ease;

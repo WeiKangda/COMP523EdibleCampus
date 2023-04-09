@@ -1,0 +1,51 @@
+/* Comment area styles */
+.comment-area {
+  padding: 20px;
+  background-color: #563c5b;  
+}
+
+.comment-form label {
+  color: white;
+}
+
+.comment-area h3 {
+  margin-top: 0;
+}
+
+.comment-area label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  
+}
+
+.comment-area input[type="text"],
+.comment-area textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.comment-area textarea {
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+}
+
+
+.comment-area input[type="submit"] {
+  background-color: #563c5b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comment-area input[type="submit"]:hover {
+  background-color: #7c598c;
+}
+

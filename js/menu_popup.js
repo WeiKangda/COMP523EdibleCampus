@@ -131,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gardenName = "Fetzer Garden";
     }
 
+    map.closePopup();
     const currentZoom = map.getZoom();
     const zoomOutLevel = currentZoom - 1;
     const zoomInLevel = 18;
@@ -142,8 +143,9 @@ document.addEventListener("DOMContentLoaded", function () {
           .flyTo(gardenCoords, zoomInLevel, { animate: true, duration: 0.5 })
           .once("moveend", () => {
             gardenElement.bindPopup(
-              `<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image"><p class="popup-text">${gardenName}</p>
-            <button id="navigateButton" class="navigate-button">Navigate to this garden</button>`,
+              `<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image">
+              <p class="popup-text">${gardenName}</p>
+              <button id="navigateButton" class="navigate-button">Navigate to this garden</button>`,
               { className: "custom-popup", offset: offset }
             );
 
@@ -169,9 +171,6 @@ document.addEventListener("DOMContentLoaded", function () {
             function onLocationFound(e) {
               // Remove the event listener to prevent multiple routes
               map.off("locationfound", onLocationFound);
-
-              // Update routing control with user's current location and garden location
-              // updateRoutingControl(e, gardenCoords);
 
               // Add routing control with user's current location and garden location
               window.routingControl = L.Routing.control({
