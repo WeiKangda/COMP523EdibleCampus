@@ -232,16 +232,16 @@ function onMapdbClick(e) {
 
 // map.on('dblclick', onMapdbClick);
 
-main_garden.on("click", openPlant);
+// main_garden.on("click", openPlant);
 
-function openPlant() {
-  //document.getElementById("about").style.backgroundColor = '#ff6347';
-  console.log("openPlant function called!");
-  document.getElementById("plantTab").style.width = "100%";
-  document.getElementById("map").style.height = "0vh";
-}
+// function openPlant() {
+//   //document.getElementById("about").style.backgroundColor = '#ff6347';
+//   console.log("openPlant function called!");
+//   document.getElementById("plantTab").style.width = "100%";
+//   document.getElementById("map").style.height = "0vh";
+// }
 
-function closePlant() {
-  document.getElementById("plantTab").style.width = "0%";
-  document.getElementById("map").style.height = "80vh";
-}
+// function closePlant() {
+//   document.getElementById("plantTab").style.width = "0%";
+//   document.getElementById("map").style.height = "80vh";
+// }

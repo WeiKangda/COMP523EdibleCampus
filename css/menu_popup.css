@@ -1,3 +1,5 @@
+//this is menu_popup.css file
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -59,57 +61,40 @@
 .popup-image {
   width: 100%;
   height: auto;
-  max-width: 150%;
-  max-height: 150%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .popup-text {
-  color: #000; /* Or any color you want */
+  font-size: 15px;
+  font-weight: bold;
+  color: #563c5b;
 }
 
 .custom-popup .leaflet-popup-content {
-  width: 200px !important;
+  width: 120px !important;
   padding: 0 !important;
 }
 
 .custom-popup .leaflet-popup-content-wrapper {
-  padding: 5px;
+  padding: 1px;
   background-color: #f9f9f9; /* You can change this to your desired background color */
 }
 
-/* .navigate-button {
-  display: inline-block;
-  margin-top: 5px;
-  background-color: #007bff;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-.navigate-button:hover {
-  background-color: #0056b3;
-} */
-
-/* Navigation button */
 .navigate-button {
   background-color: #563c5b;
   border: none;
   border-radius: 4px;
   color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 12px;
   margin-top: 10px;
-  padding: 10px 20px;
+  padding: 3px 10px;
   text-align: center;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
 .navigate-button:hover {
-  background-color: #333333;
+  background-color: #7c598c;
 }
