@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }),
                 show: false,
                 lineOptions: {
-                  styles: [{ color: "#563c5b", opacity: 0.8, weight: 5 }],
+                  styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
                 },
                 fitSelectedRoutes: true,
               }).addTo(map);
