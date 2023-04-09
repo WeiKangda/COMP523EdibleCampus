@@ -140,15 +140,29 @@
       </div>
     </div>
 
-    <div class="comment-area">
+    <!-- <div class="comment-area">
       <form>
         <label for="comment" style="color: white;">Add a Comment</label>
         <textarea id="comment" name="comment"></textarea>
         <input type="submit" value="Submit">
       </form>
+    </div> -->
+    
+    <div class="comment-area">
+      <form onsubmit="addComment(); return false;">
+        <!-- <label for="name" style="color: white;">Name:</label>
+        <input type="text" id="name" name="name"><br> -->
+  
+        <label for="comment" style="color: white;">Comment:</label>
+        <textarea id="comment" name="comment"></textarea><br>
+  
+        <input type="submit" value="Submit">
+      </form>
+  
+      <div id="comments"></div>
     </div>
-    
-    
+  
+    <script src="comments.js"></script>
 
     <!-- About section -->
     <div id="about">
