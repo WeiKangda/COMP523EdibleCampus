@@ -1,11 +1,6 @@
-/* Comment area styles */
 .comment-area {
   padding: 20px;
-  background-color: #563c5b;  
-}
-
-.comment-form label {
-  color: white;
+  background-color: #563c5b;
 }
 
 .comment-area h3 {
@@ -16,24 +11,19 @@
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
-  
+  color: white;
 }
 
-.comment-area input[type="text"],
 .comment-area textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
-}
-
-.comment-area textarea {
-  width: 100%;
-  height: 100px;
   box-sizing: border-box;
+  resize: none;
+  min-height: 100px;
 }
-
 
 .comment-area input[type="submit"] {
   background-color: #563c5b;
@@ -43,9 +33,15 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  position: absolute;
+  bottom: 28px;
+  right: 10px;
 }
 
 .comment-area input[type="submit"]:hover {
   background-color: #7c598c;
 }
 
+.comment-area form {
+  position: relative;
+}
