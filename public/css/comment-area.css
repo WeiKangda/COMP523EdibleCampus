@@ -61,18 +61,25 @@
 }
 
 .comment p {
-  margin: 0;
+  margin: 0 0 10px;
   font-size: 14px;
 }
 
-.comment > span {
-  display: block;
-  font-size: 12px;
-  color: #999;
-  margin-top: 5px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.comment-info {
+  display: flex;
+  justify-content: space-between; /* Align the ID and time on opposite ends */
+}
+
+.comment-id {
+  float: left;
+  font-size: 10px;
+  color: #fff;
+}
+
+.comment-date {
+  float: right;
+  font-size: 10px;
+  color: #fff;
 }
 
 .comment-item {
