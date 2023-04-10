@@ -94,12 +94,13 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 20px;
 }
 
 /* Set font family and color for h3 in about section */
 #about h3,
 p {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   color: rgb(250, 247, 247);
   text-align: center;
 }
@@ -132,8 +133,6 @@ p {
   transition: 0.3s;
 }
 
-
-
 /* Set height, background color, display, align-items and justify-content for description section */
 #description {
   display: flex;
@@ -143,12 +142,13 @@ p {
   height: 50vh;
   background-color: #563c5b;
   color: #fff;
+  margin-bottom: 0
 }
 
 /* Set font family and color for h3 and p in description section */
 #description h3,
 #description p {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto";
   color: #fff;
   text-align: center;
   margin-top: 0;

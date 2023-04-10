@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
   // Get the menu button and the dropdown content
   const menuButton = document.getElementById("menuButton");
@@ -81,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     centerOnGarden("fetzer");
     dropdownContent.style.display = "none";
   });
+
 
   function centerOnGarden(garden) {
     // let gardenCoords;
@@ -184,8 +186,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 fitSelectedRoutes: true,
               }).addTo(map);
+
+              // Create a new Mapbox map
+              // Define the routing control options
+
+              // var routingOptions = {
+              //   waypoints: [e.latlng, L.latLng(gardenCoords)],
+              //   show: false,
+              //   lineOptions: {
+              //     styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
+              //   },
+              //   fitSelectedRoutes: true,
+              // };
+
+              // // Create the routing control with the default mode (walking)
+              // window.routingControl = L.Routing.control({
+              //   router: new L.Routing.mapbox(
+              //     "pk.eyJ1IjoiaGd1bzUiLCJhIjoiY2xnYjJpYXJpMGEycDN0bnphNDR4bGMzNCJ9.7_xQzJQ2f3jt5TgMkRTI0A",
+              //     {
+              //       profile: "mapbox/walking",
+              //     }
+              //   ),
+              //   ...routingOptions,
+              // }).addTo(map);
             }
           });
       });
   }
 });
+

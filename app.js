@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const XLSX = require('xlsx');
+const ExcelJS = require('exceljs');
 const app = express();
 const port = 3000;
 
@@ -48,6 +49,36 @@ app.post('/submit-comment', (req, res) => {
    XLSX.writeFile(workbook, commentsFile);
    res.send('Comment saved.');
  });
+
+ app.get('/fetch-comments', async (req, res) => {
+  try {
+    const comments = await readComments();
+    res.json(comments);
+  } catch (err) {
+    console.error('Error reading comments:', err);
+    res.status(500).json({ error: 'Failed to fetch comments' });
+  }
+});
+
+const readComments = async () => {
+  const workbook = new ExcelJS.Workbook();
+  await workbook.xlsx.readFile('comments/comments.xlsx');
+  const worksheet = workbook.getWorksheet(1);
+
+  const comments = [];
+  worksheet.eachRow((row, rowIndex) => {
+    if (rowIndex > 1) {
+      const commentObj = {
+        id: row.getCell(1).value,
+        comment: row.getCell(2).value,
+        time: row.getCell(3).value,
+      };
+      comments.push(commentObj);
+    }
+  });
+
+  return comments;
+};
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
