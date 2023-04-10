@@ -1,4 +1,4 @@
-import { fetchComments } from 'displayComments.js';
+import { fetchComments } from './displayComments.js';
 
 document.addEventListener('DOMContentLoaded', () => {
    const commentForm = document.getElementById('comment-form');
