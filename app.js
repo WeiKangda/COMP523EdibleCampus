@@ -36,7 +36,7 @@ app.post('/submit-comment', (req, res) => {
  
    const newRow = range.e.r + 1;
    const currentTime = formatDate(new Date());
-   const newId = newRow - 1; // Subtracting 1 to have the first ID start from 1
+   const newId = newRow - 1; 
  
    worksheet['A' + (newRow + 1)] = { t: 'n', v: newId };
    worksheet['B' + (newRow + 1)] = { t: 's', v: comment };
