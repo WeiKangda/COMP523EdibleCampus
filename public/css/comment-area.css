@@ -1,0 +1,47 @@
+.comment-area {
+  padding: 20px;
+  background-color: #563c5b;
+}
+
+.comment-area h3 {
+  margin-top: 0;
+}
+
+.comment-area label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.comment-area textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.comment-area input[type="submit"] {
+  background-color: #563c5b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  bottom: 28px;
+  right: 10px;
+}
+
+.comment-area input[type="submit"]:hover {
+  background-color: #7c598c;
+}
+
+.comment-area form {
+  position: relative;
+}
