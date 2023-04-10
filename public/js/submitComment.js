@@ -1,3 +1,5 @@
+import { fetchComments } from 'displayComments.js';
+
 document.addEventListener('DOMContentLoaded', () => {
    const commentForm = document.getElementById('comment-form');
  
@@ -18,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
  
      if (response.status === 200) {
        commentInput.value = '';
-       alert('Comment saved.');
+      //  alert('Comment saved.');
+       fetchComments();
      } else {
        alert('An error occurred. Please try again.');
      }

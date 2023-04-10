@@ -1,3 +1,4 @@
+
 // Map options, og location and zoom level
 let mapOptions = {
   center: [35.9115137, -79.0476156],
