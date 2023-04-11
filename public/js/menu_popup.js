@@ -83,31 +83,31 @@ document.addEventListener("DOMContentLoaded", function () {
   //   dropdownContent.style.display = "none";
   // });
 
-  
-    const menuButton = document.getElementById("menuButton");
-    const dropdownContent = document.querySelector(".dropdown-content");
-  
-    menuButton.addEventListener("click", toggleDropdown);
-  
-    function toggleDropdown(event) {
-      event.stopPropagation();
-      dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+
+  const menuButton = document.getElementById("menuButton");
+  const dropdownContent = document.querySelector(".dropdown-content");
+
+  menuButton.addEventListener("click", toggleDropdown);
+
+  function toggleDropdown(event) {
+    event.stopPropagation();
+    dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+  }
+
+  document.addEventListener("click", function (event) {
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
     }
-  
-    document.addEventListener("click", function (event) {
-      if (dropdownContent.style.display === "block") {
-        dropdownContent.style.display = "none";
-      }
-    });
-  
-    dropdownContent.addEventListener("click", function (event) {
-      const target = event.target;
-      if (target.classList.contains("garden-button")) {
-        const garden = target.getAttribute("data-garden");
-        centerOnGarden(garden);
-        dropdownContent.style.display = "none";
-      }
-    });
+  });
+
+  dropdownContent.addEventListener("click", function (event) {
+    const target = event.target;
+    if (target.classList.contains("garden-button")) {
+      const garden = target.getAttribute("data-garden");
+      centerOnGarden(garden);
+      dropdownContent.style.display = "none";
+    }
+  });
 
   function centerOnGarden(garden) {
 
@@ -132,10 +132,12 @@ document.addEventListener("DOMContentLoaded", function () {
       gardenCoords = [35.913114, -79.047187];
       gardenElement = graham;
       gardenName = "Graham Garden";
+      gardenImageSrc = "./img/graham.jpeg";
     } else if (garden === "stacy") {
       gardenCoords = [35.912904, -79.045814];
       gardenElement = stacy;
       gardenName = "Stacy Garden";
+      gardenImageSrc = "./img/Stacy.jpeg";
     } else if (garden === "davis") {
       gardenCoords = [35.910711, -79.048374];
       gardenElement = davis;
@@ -145,18 +147,22 @@ document.addEventListener("DOMContentLoaded", function () {
       gardenCoords = [35.905647, -79.045832];
       gardenElement = rams_head_plaza;
       gardenName = "Rams Head Plaza Garden";
+      gardenImageSrc = "./img/RamsHeadPlaza.jpeg";
     } else if (garden === "SASBPlaza") {
       gardenCoords = [35.904367, -79.044742];
       gardenElement = SASB_plaza;
       gardenName = "SASB Plaza Garden";
+      gardenImageSrc = "./img/SASBPlaza.jpeg";
     } else if (garden === "hardin") {
       gardenCoords = [35.903815, -79.046311];
       gardenElement = hardin;
       gardenName = "Hardin Garden";
+      gardenImageSrc = "./img/Hardin.webp";
     } else if (garden === "fetzer") {
       gardenCoords = [35.909124, -79.04647];
       gardenElement = fetzer;
       gardenName = "Fetzer Garden";
+      gardenImageSrc = "./img/Fetzer.jpeg";
     }
 
     map.closePopup();
@@ -165,85 +171,145 @@ document.addEventListener("DOMContentLoaded", function () {
     const zoomInLevel = 18;
 
 
-    map
-      .flyTo(map.getCenter(), zoomOutLevel, { animate: true, duration: 1 })
-      .once("moveend", () => {
-        map
-          .flyTo(gardenCoords, zoomInLevel, { animate: true, duration: 0.5 })
-          .once("moveend", () => {
+    // map
+    //   .flyTo(map.getCenter(), zoomOutLevel, { animate: true, duration: 1 })
+    //   .once("moveend", () => {
+    //     map
+    //       .flyTo(gardenCoords, zoomInLevel, { animate: true, duration: 0.5 })
+    //       .once("moveend", () => {
 
-            gardenElement.bindPopup(
-              `<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image">
-              <p class="popup-text">${gardenName}</p>
-              <button id="navigateButton" class="navigate-button">Navigate to this garden</button>`,
-              { className: "custom-popup", offset: offset }
-            );
+    //         gardenElement.bindPopup(
+    //           `<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image">
+    //           <p class="popup-text">${gardenName}</p>
+    //           <button id="navigateButton" class="navigate-button">Navigate to this garden</button>`,
+    //           { className: "custom-popup", offset: offset }
+    //         );
 
-            gardenElement.openPopup();
+    //         gardenElement.openPopup();
 
-            // Move the view a little down to show the full popup label
-            //  map.panBy([0, -100], { animate: true, duration: 0.5 });
+    //         // Move the view a little down to show the full popup label
+    //         //  map.panBy([0, -100], { animate: true, duration: 0.5 });
 
-            // Add event listener for the navigate button
-            document
-              .getElementById("navigateButton")
-              .addEventListener("click", () => {
-                // Remove any existing routing control
-                if (window.routingControl) {
-                  map.removeControl(window.routingControl);
-                }
+    //         // Add event listener for the navigate button
+    //         document
+    //           .getElementById("navigateButton")
+    //           .addEventListener("click", () => {
+    //             // Remove any existing routing control
+    //             if (window.routingControl) {
+    //               map.removeControl(window.routingControl);
+    //             }
 
-                // Get user's current location
-                map.locate({ setView: true, maxZoom: 16 });
+    //             // Get user's current location
+    //             map.locate({ setView: true, maxZoom: 16 });
 
-                // Add event listener for location found
-                map.on("locationfound", onLocationFound);
-              });
+    //             // Add event listener for location found
+    //             map.on("locationfound", onLocationFound);
+    //           });
 
-            // Function to handle location found
-            function onLocationFound(e) {
-              // Remove the event listener to prevent multiple routes
-              map.off("locationfound", onLocationFound);
+    //         // Function to handle location found
+    //         function onLocationFound(e) {
+    //           // Remove the event listener to prevent multiple routes
+    //           map.off("locationfound", onLocationFound);
 
-              // Add routing control with user's current location and garden location
-              window.routingControl = L.Routing.control({
-                waypoints: [e.latlng, L.latLng(gardenCoords)],
-                router: new L.Routing.osrmv1({
-                  serviceUrl: "https://router.project-osrm.org/route/v1",
-                }),
-                show: false,
-                lineOptions: {
-                  styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
-                },
-                fitSelectedRoutes: true,
-              }).addTo(map);
+    //           // Add routing control with user's current location and garden location
+    //           window.routingControl = L.Routing.control({
+    //             waypoints: [e.latlng, L.latLng(gardenCoords)],
+    //             router: new L.Routing.osrmv1({
+    //               serviceUrl: "https://router.project-osrm.org/route/v1",
+    //             }),
+    //             show: false,
+    //             lineOptions: {
+    //               styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
+    //             },
+    //             fitSelectedRoutes: true,
+    //           }).addTo(map);
 
-              
-              // Create a new Mapbox map
-              // Define the routing control options
 
-              // var routingOptions = {
-              //   waypoints: [e.latlng, L.latLng(gardenCoords)],
-              //   show: false,
-              //   lineOptions: {
-              //     styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
-              //   },
-              //   fitSelectedRoutes: true,
-              // };
+    //           // Create a new Mapbox map
+    //           // Define the routing control options
 
-              // // Create the routing control with the default mode (walking)
-              // window.routingControl = L.Routing.control({
-              //   router: new L.Routing.mapbox(
-              //     "pk.eyJ1IjoiaGd1bzUiLCJhIjoiY2xnYjJpYXJpMGEycDN0bnphNDR4bGMzNCJ9.7_xQzJQ2f3jt5TgMkRTI0A",
-              //     {
-              //       profile: "mapbox/walking",
-              //     }
-              //   ),
-              //   ...routingOptions,
-              // }).addTo(map);
-            }
-          });
-      });
+    //           // var routingOptions = {
+    //           //   waypoints: [e.latlng, L.latLng(gardenCoords)],
+    //           //   show: false,
+    //           //   lineOptions: {
+    //           //     styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
+    //           //   },
+    //           //   fitSelectedRoutes: true,
+    //           // };
+
+    //           // // Create the routing control with the default mode (walking)
+    //           // window.routingControl = L.Routing.control({
+    //           //   router: new L.Routing.mapbox(
+    //           //     "pk.eyJ1IjoiaGd1bzUiLCJhIjoiY2xnYjJpYXJpMGEycDN0bnphNDR4bGMzNCJ9.7_xQzJQ2f3jt5TgMkRTI0A",
+    //           //     {
+    //           //       profile: "mapbox/walking",
+    //           //     }
+    //           //   ),
+    //           //   ...routingOptions,
+    //           // }).addTo(map);
+    //         }
+    //       });
+    //   });
+
+    function flyToGarden() {
+      // Fly out to a wider view before flying to the garden location
+      map.flyTo(map.getCenter(), zoomOutLevel, { animate: true, duration: 0.5 })
+        .once("moveend", flyToGardenCoords);
+    }
+
+    function flyToGardenCoords() {
+      map.flyTo(gardenCoords, zoomInLevel, { animate: true, duration: 0.5 })
+        .once("moveend", showGardenPopup);
+    }
+
+    function showGardenPopup() {
+      gardenElement.bindPopup(
+        `<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image">
+        <p class="popup-text">${gardenName}</p>
+        <button id="navigateButton" class="navigate-button">Navigate to this garden</button>`,
+        { className: "custom-popup", offset: offset }
+      );
+
+      gardenElement.openPopup();
+
+      // Add event listener for the navigate button
+      document.getElementById("navigateButton").addEventListener("click", initiateNavigation);
+    }
+
+    function initiateNavigation() {
+      // Remove any existing routing control
+      if (window.routingControl) {
+        map.removeControl(window.routingControl);
+      }
+
+      // Get user's current location
+      map.locate({ setView: true, maxZoom: 16 });
+
+      // Add event listener for location found
+      map.on("locationfound", onLocationFound);
+    }
+
+    function onLocationFound(e) {
+      // Remove the event listener to prevent multiple routes
+      map.off("locationfound", onLocationFound);
+
+      // Add routing control with user's current location and garden location
+      window.routingControl = L.Routing.control({
+        waypoints: [e.latlng, L.latLng(gardenCoords)],
+        router: new L.Routing.osrmv1({
+          serviceUrl: "https://router.project-osrm.org/route/v1",
+        }),
+        show: false,
+        lineOptions: {
+          styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
+        },
+        fitSelectedRoutes: true,
+      }).addTo(map);
+    }
+
+    // Start the process by flying to the garden
+    flyToGarden();
+
   }
 });
 
