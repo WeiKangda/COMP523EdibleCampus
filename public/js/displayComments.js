@@ -55,8 +55,6 @@ export async function fetchComments() {
   }
 }
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   fetchComments();
 });
