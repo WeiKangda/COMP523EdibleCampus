@@ -15,13 +15,15 @@ The UNC Edible Campus Map is a web application that displays the locations of ed
 1. Make sure you have [Node.js](https://nodejs.org/) installed on your system.
 
 2. Clone this repository:
-git clone https://github.com/yourusername/unc-edible-campus-map.git
+git@github.com:WeiKangda/COMP523EdibleCampus.git
 
 3. Change to the project directory:
 cd COMP523EdibleCampus
 
 4. Install the project dependencies:
+
 npm install express xlsx multer express-rate-limit axios
+
 
 5. Run the application:
 node app.js
@@ -52,4 +54,4 @@ node app.js
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. 
