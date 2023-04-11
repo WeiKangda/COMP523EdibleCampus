@@ -46,6 +46,10 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="css/comment-area.css" />
+
+    <!-- google recaptcha  -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   </head>
   <!-- End of Head section -->
 
@@ -173,8 +177,11 @@
 
     <div class="comment-area">
       <form id="comment-form">
+        <div class="g-recaptcha" data-sitekey="6LdY7nslAAAAADxC6vidh80NuM4m3ImWRmMnJswK"></div>
         <label for="comment" style="color: white"></label>
+        
         <textarea id="comment" name="comment"></textarea>
+        
         <input type="submit" value="Submit Your Comment" />
       </form>
     </div>

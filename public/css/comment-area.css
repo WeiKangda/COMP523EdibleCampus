@@ -87,3 +87,7 @@
   color: white;
   font-size: 14px;
 }
+
+.g-recaptcha {
+  margin-bottom: 5px;
+}

@@ -21,7 +21,9 @@ git@github.com:WeiKangda/COMP523EdibleCampus.git
 cd COMP523EdibleCampus
 
 4. Install the project dependencies:
-npm install express xlsx multer exceljs
+
+npm install express xlsx multer express-rate-limit axios
+
 
 5. Run the application:
 node app.js

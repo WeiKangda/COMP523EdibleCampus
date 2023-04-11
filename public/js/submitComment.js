@@ -46,7 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ comment }),
+        body: JSON.stringify({
+          comment,
+          recaptcha: grecaptcha.getResponse(),
+        }),
       });
 
       if (response.status === 429) {
@@ -55,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (response.status === 200) {
         commentInput.value = '';
         fetchComments();
+      } else if (response.status === 400) {
+        alert('Invalid reCAPTCHA. Please try again.');
       } else {
         alert('An error occurred. Please try again.');
       }

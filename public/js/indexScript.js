@@ -1,10 +1,17 @@
+const uncCampusBounds = [
+  [35.897317, -79.062370], // Southwest corner coordinates
+  [35.917714, -79.038229]  // Northeast corner coordinates
+];
+
 
 // Map options, og location and zoom level
 let mapOptions = {
   center: [35.9115137, -79.0476156],
   zoom: 17,
-  height: 500,
-  width: "100%",
+  // height: 480,
+  // width: "100%",
+  maxBounds: uncCampusBounds, // Restrict the map to the UNC campus bounds
+  maxBoundsViscosity: 1.0 // Makes the map stop dragging when it reaches the bounds
 };
 
 // Creating a map object
