@@ -1,6 +1,6 @@
 const uncCampusBounds = [
-  [35.897317, -79.062370], // Southwest corner coordinates
-  [35.917714, -79.038229]  // Northeast corner coordinates
+  [35.878870, -79.092428], // Southwest corner coordinates
+  [35.953868, -79.003511]  // Northeast corner coordinates
 ];
 
 
@@ -8,7 +8,7 @@ const uncCampusBounds = [
 let mapOptions = {
   center: [35.9115137, -79.0476156],
   zoom: 17,
-  maxZoom: 14,
+  minZoom: 14,
   maxBounds: uncCampusBounds, // Restrict the map to the UNC campus bounds
   maxBoundsViscosity: 1.0 // Makes the map stop dragging when it reaches the bounds
 };
@@ -149,93 +149,93 @@ const main_garden = L.polygon([
 // }
 
 // Add an event listener for the "Center on Lenoir" button
-document
-  .getElementById("centerLenoirBtn")
-  .addEventListener("click", centerOnLenoir);
+// document
+//   .getElementById("centerLenoirBtn")
+//   .addEventListener("click", centerOnLenoir);
 
-function centerOnLenoir() {
-  const lenoirCenter = [35.910299, -79.048571];
-  map.setView(lenoirCenter, 17);
+// function centerOnLenoir() {
+//   const lenoirCenter = [35.910299, -79.048571];
+//   map.setView(lenoirCenter, 17);
 
-  lenoir.openPopup();
-}
+//   lenoir.openPopup();
+// }
 
-// Add an event listener for the "Center on Graham" button
-document
-  .getElementById("centerGrahamBtn")
-  .addEventListener("click", centerOnGraham);
+// // Add an event listener for the "Center on Graham" button
+// document
+//   .getElementById("centerGrahamBtn")
+//   .addEventListener("click", centerOnGraham);
 
-function centerOnGraham() {
-  const grahamCenter = [35.91314, -79.047127];
-  map.setView(grahamCenter, 17);
+// function centerOnGraham() {
+//   const grahamCenter = [35.91314, -79.047127];
+//   map.setView(grahamCenter, 17);
 
-  graham.openPopup();
-}
+//   graham.openPopup();
+// }
 
-// Add an event listener for the "Center on Stacy" button
-document
-  .getElementById("centerStacyBtn")
-  .addEventListener("click", centerOnStacy);
+// // Add an event listener for the "Center on Stacy" button
+// document
+//   .getElementById("centerStacyBtn")
+//   .addEventListener("click", centerOnStacy);
 
-function centerOnStacy() {
-  const stacyCenter = [35.912915, -79.045755];
-  map.setView(stacyCenter, 17);
+// function centerOnStacy() {
+//   const stacyCenter = [35.912915, -79.045755];
+//   map.setView(stacyCenter, 17);
 
-  stacy.openPopup();
-}
+//   stacy.openPopup();
+// }
 
-// Add an event listener for the "Center on Davis" button
-document
-  .getElementById("centerDavisBtn")
-  .addEventListener("click", centerOnDavis);
+// // Add an event listener for the "Center on Davis" button
+// document
+//   .getElementById("centerDavisBtn")
+//   .addEventListener("click", centerOnDavis);
 
-function centerOnDavis() {
-  const davisCenter = [35.910692, -79.048377];
-  map.setView(davisCenter, 17);
+// function centerOnDavis() {
+//   const davisCenter = [35.910692, -79.048377];
+//   map.setView(davisCenter, 17);
 
-  davis.openPopup();
-}
+//   davis.openPopup();
+// }
 
-// Add an event listener for the "Center on Hardin" button
-document
-  .getElementById("centerHardinBtn")
-  .addEventListener("click", centerOnHardin);
+// // Add an event listener for the "Center on Hardin" button
+// document
+//   .getElementById("centerHardinBtn")
+//   .addEventListener("click", centerOnHardin);
 
-function centerOnHardin() {
-  const hardinCenter = [35.90384, -79.046266];
-  map.setView(hardinCenter, 17);
+// function centerOnHardin() {
+//   const hardinCenter = [35.90384, -79.046266];
+//   map.setView(hardinCenter, 17);
 
-  hardin.openPopup();
-}
+//   hardin.openPopup();
+// }
 
-// Add an event listener for the "Center on Rams Head Plaza" button
-document
-  .getElementById("centerRamsHeadPlazaBtn")
-  .addEventListener("click", centerOnRamsHeadPlaza);
+// // Add an event listener for the "Center on Rams Head Plaza" button
+// document
+//   .getElementById("centerRamsHeadPlazaBtn")
+//   .addEventListener("click", centerOnRamsHeadPlaza);
 
-function centerOnRamsHeadPlaza() {
-  const ramsHeadPlazaCenter = [35.905664, -79.045909];
-  map.setView(ramsHeadPlazaCenter, 17);
+// function centerOnRamsHeadPlaza() {
+//   const ramsHeadPlazaCenter = [35.905664, -79.045909];
+//   map.setView(ramsHeadPlazaCenter, 17);
 
-  rams_head_plaza.openPopup();
-}
+//   rams_head_plaza.openPopup();
+// }
 
-// Add an event listener for the "Center on SASB Plaza" button
-document
-  .getElementById("centerSASBPlazaBtn")
-  .addEventListener("click", centerOnSASBPlaza);
+// // Add an event listener for the "Center on SASB Plaza" button
+// document
+//   .getElementById("centerSASBPlazaBtn")
+//   .addEventListener("click", centerOnSASBPlaza);
 
-function centerOnSASBPlaza() {
-  const sasbPlazaCenter = [35.90438, -79.04479];
-  map.setView(sasbPlazaCenter, 17);
+// function centerOnSASBPlaza() {
+//   const sasbPlazaCenter = [35.90438, -79.04479];
+//   map.setView(sasbPlazaCenter, 17);
 
-  SASB_plaza.openPopup();
-}
-function onMapdbClick(e) {
-  var name = prompt("placed marker at: " + e.latlng);
-  var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
-  marker.bindPopup(name).openPopup();
-}
+//   SASB_plaza.openPopup();
+// }
+// function onMapdbClick(e) {
+//   var name = prompt("placed marker at: " + e.latlng);
+//   var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+//   marker.bindPopup(name).openPopup();
+// }
 
 // map.on('dblclick', onMapdbClick);
 
