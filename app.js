@@ -14,7 +14,7 @@ const rateLimit = require("express-rate-limit");
 
 const postCommentLimiter = rateLimit({
   windowMs: 2 * 60 * 1000, // 2 minutes
-  max: 3, // limit each IP to 1 comment per windowMs
+  max: 3, // limit each IP to 3 comment per windowMs
   message: "Too many comments posted. Please wait 2 minutes before trying again.",
 });
 
