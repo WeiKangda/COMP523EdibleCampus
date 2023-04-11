@@ -8,8 +8,7 @@ const uncCampusBounds = [
 let mapOptions = {
   center: [35.9115137, -79.0476156],
   zoom: 17,
-  // height: 480,
-  // width: "100%",
+  maxZoom: 14,
   maxBounds: uncCampusBounds, // Restrict the map to the UNC campus bounds
   maxBoundsViscosity: 1.0 // Makes the map stop dragging when it reaches the bounds
 };
