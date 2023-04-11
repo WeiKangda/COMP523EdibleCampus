@@ -21,7 +21,7 @@ git clone https://github.com/yourusername/unc-edible-campus-map.git
 cd COMP523EdibleCampus
 
 4. Install the project dependencies:
-npm install express xlsx multer
+npm install express xlsx multer express-rate-limit axios
 
 5. Run the application:
 node app.js
