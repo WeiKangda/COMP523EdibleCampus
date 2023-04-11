@@ -10,7 +10,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.post('/submit-comment', (req, res) => {
+const rateLimit = require("express-rate-limit");
+
+const postCommentLimiter = rateLimit({
+  windowMs: 2 * 60 * 1000, // 2 minutes
+  max: 1, // limit each IP to 1 comment per windowMs
+  message: "Too many comments posted. Please wait 2 minutes before trying again.",
+});
+
+app.post('/submit-comment', postCommentLimiter, (req, res) => {
    const comment = req.body.comment;
    const commentsFile = './comments/comments.xlsx';
    
