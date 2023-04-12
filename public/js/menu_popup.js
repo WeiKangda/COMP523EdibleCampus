@@ -296,9 +296,15 @@ document.addEventListener("DOMContentLoaded", function () {
       // Add routing control with user's current location and garden location
       window.routingControl = L.Routing.control({
         waypoints: [e.latlng, L.latLng(gardenCoords)],
-        router: new L.Routing.osrmv1({
-          serviceUrl: "https://router.project-osrm.org/route/v1",
-        }),
+        // router: new L.Routing.osrmv1({
+        //   serviceUrl: "https://router.project-osrm.org/route/v1",s
+        // }),
+        router: new L.Routing.mapbox(
+                        "pk.eyJ1IjoiaGd1bzUiLCJhIjoiY2xnYjJpYXJpMGEycDN0bnphNDR4bGMzNCJ9.7_xQzJQ2f3jt5TgMkRTI0A",
+                        {
+                          profile: "mapbox/walking",
+                        }
+                      ),
         show: false,
         lineOptions: {
           styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
