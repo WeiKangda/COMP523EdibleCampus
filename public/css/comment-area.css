@@ -88,6 +88,9 @@
   font-size: 14px;
 }
 
-.g-recaptcha {
-  margin-bottom: 5px;
-}
+.g-recaptcha > div {
+  margin: 2px auto;
+  text-align: center;
+  width: auto;
+  height: auto;
+ }
