@@ -55,3 +55,6 @@ node app.js
 ## License
 
 This project is licensed under the MIT License. 
+
+## Reference for Google reCaptcha
+https://docs.google.com/document/d/1KQyQVfPCrYbR3sDGgltKUBp_-swKEJ_v8UtO2prn-C4/edit?usp=sharing
