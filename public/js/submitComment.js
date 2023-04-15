@@ -1,50 +1,22 @@
-// import { fetchComments } from './displayComments.js';
 
-// document.addEventListener('DOMContentLoaded', () => {
-//    const commentForm = document.getElementById('comment-form');
- 
-//    commentForm.addEventListener('submit', async (event) => {
-//      event.preventDefault();
- 
-//      const commentInput = document.getElementById('comment');
-//      const comment = commentInput.value;
-//      if (comment.trim() === '') return;
- 
-//      const response = await fetch('/submit-comment', {
-//        method: 'POST',
-//        headers: {
-//          'Content-Type': 'application/json',
-//        },
-//        body: JSON.stringify({ comment }),
-//      });
- 
-//      if (response.status === 200) {
-//        commentInput.value = '';
-//       //  alert('Comment saved.');
-//        fetchComments();
-//      } else {
-//        alert('An error occurred. Please try again.');
-//      }
-//    });
-//  });
 
-import { fetchComments } from './displayComments.js';
+import { fetchComments } from "./displayComments.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const commentForm = document.getElementById('comment-form');
+document.addEventListener("DOMContentLoaded", () => {
+  const commentForm = document.getElementById("comment-form");
 
-  commentForm.addEventListener('submit', async (event) => {
+  commentForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const commentInput = document.getElementById('comment');
+    const commentInput = document.getElementById("comment");
     const comment = commentInput.value;
-    if (comment.trim() === '') return;
+    if (comment.trim() === "") return;
 
     try {
-      const response = await fetch('/submit-comment', {
-        method: 'POST',
+      const response = await fetch("/submit-comment", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           comment,
@@ -56,16 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const error = await response.text();
         alert(error);
       } else if (response.status === 200) {
-        commentInput.value = '';
+        commentInput.value = "";
         fetchComments();
       } else if (response.status === 400) {
-        alert('Invalid reCAPTCHA. Please try again.');
+        alert("Invalid reCAPTCHA. Please try again.");
       } else {
-        alert('An error occurred. Please try again.');
+        alert("An error occurred. Please try again.");
       }
     } catch (error) {
-      console.error('Error submitting comment:', error);
-      alert('An error occurred. Please try again.');
+      console.error("Error submitting comment:", error);
+      alert("An error occurred. Please try again.");
     }
   });
 });
