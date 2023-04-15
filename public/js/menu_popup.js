@@ -1,89 +1,8 @@
 
+// https://stackoverflow.com/questions/6703349/open-google-maps-app-from-a-browser-with-default-start-location-on-android-and-i
+
 document.addEventListener("DOMContentLoaded", function () {
-  // // Get the menu button and the dropdown content
-  // const menuButton = document.getElementById("menuButton");
-  // const dropdownContent = document.querySelector(".dropdown-content");
-  // const centerMainGarden = document.getElementById("centerMainGarden");
-  // const centerLenoirGarden = document.getElementById("centerLenoir");
-  // const centerGrahamGarden = document.getElementById("centerGraham");
-  // const centerStacyGarden = document.getElementById("centerStacy");
-  // const centerDavisGarden = document.getElementById("centerDavis");
-  // const centerRamsHeadPlazaGarden = document.getElementById(
-  //   "centerRamsHeadPlaza"
-  // );
-  // const centerSASBPlazaGarden = document.getElementById("centerSASBPlaza");
-  // const centerHardinGarden = document.getElementById("centerHardin");
-  // const centerFetzerGarden = document.getElementById("centerFetzer");
-
-  // // Add an event listener for the menu button
-  // menuButton.addEventListener("click", toggleDropdown);
-
-  // // Function to toggle the dropdown menu
-  // function toggleDropdown(event) {
-  //   event.stopPropagation();
-  //   if (dropdownContent.style.display === "block") {
-  //     dropdownContent.style.display = "none";
-  //   } else {
-  //     dropdownContent.style.display = "block";
-  //   }
-  // }
-
-  // // Add an event listener for clicks outside the menu
-  // document.addEventListener("click", function (event) {
-  //   if (dropdownContent.style.display === "block") {
-  //     dropdownContent.style.display = "none";
-  //   }
-  // });
-
-  // centerMainGarden.addEventListener("click", function (event) {
-  //   centerOnGarden("main");
-  //   dropdownContent.style.display = "none";
-  // });
-
-  // centerLenoirGarden.addEventListener("click", function (event) {
-  //   centerOnGarden("lenoir");
-  //   dropdownContent.style.display = "none";
-  // });
-
-  // centerGrahamGarden.addEventListener("click", function (event) {
-  //   centerOnGarden("graham");
-  //   dropdownContent.style.display = "none";
-  // });
-
-  // centerStacyGarden.addEventListener("click", function (event) {
-  //   centerOnGarden("stacy");
-  //   dropdownContent.style.display = "none";
-  // });
-
-  // centerDavisGarden.addEventListener("click", function (event) {
-  //   // console.log("davis button clicked");
-  //   centerOnGarden("davis");
-  //   dropdownContent.style.display = "none";
-  // });
-
-  // centerRamsHeadPlazaGarden.addEventListener("click", function (event) {
-  //   // console.log("rams Plaza button clicked");
-  //   centerOnGarden("ramsHeadPlaza");
-  //   dropdownContent.style.display = "none";
-  // });
-
-  // centerSASBPlazaGarden.addEventListener("click", function (event) {
-  //   // console.log("SASB Plaza button clicked");
-  //   centerOnGarden("SASBPlaza");
-  //   dropdownContent.style.display = "none";
-  // });
-
-  // centerHardinGarden.addEventListener("click", function (event) {
-  //   centerOnGarden("hardin");
-  //   dropdownContent.style.display = "none";
-  // });
-
-  // centerFetzerGarden.addEventListener("click", function (event) {
-  //   centerOnGarden("fetzer");
-  //   dropdownContent.style.display = "none";
-  // });
-
-
+  
   const menuButton = document.getElementById("menuButton");
   const dropdownContent = document.querySelector(".dropdown-content");
 
@@ -170,87 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const zoomOutLevel = currentZoom - 1;
     const zoomInLevel = 18;
 
-
-    // map
-    //   .flyTo(map.getCenter(), zoomOutLevel, { animate: true, duration: 1 })
-    //   .once("moveend", () => {
-    //     map
-    //       .flyTo(gardenCoords, zoomInLevel, { animate: true, duration: 0.5 })
-    //       .once("moveend", () => {
-
-    //         gardenElement.bindPopup(
-    //           `<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image">
-    //           <p class="popup-text">${gardenName}</p>
-    //           <button id="navigateButton" class="navigate-button">Navigate to this garden</button>`,
-    //           { className: "custom-popup", offset: offset }
-    //         );
-
-    //         gardenElement.openPopup();
-
-    //         // Move the view a little down to show the full popup label
-    //         //  map.panBy([0, -100], { animate: true, duration: 0.5 });
-
-    //         // Add event listener for the navigate button
-    //         document
-    //           .getElementById("navigateButton")
-    //           .addEventListener("click", () => {
-    //             // Remove any existing routing control
-    //             if (window.routingControl) {
-    //               map.removeControl(window.routingControl);
-    //             }
-
-    //             // Get user's current location
-    //             map.locate({ setView: true, maxZoom: 16 });
-
-    //             // Add event listener for location found
-    //             map.on("locationfound", onLocationFound);
-    //           });
-
-    //         // Function to handle location found
-    //         function onLocationFound(e) {
-    //           // Remove the event listener to prevent multiple routes
-    //           map.off("locationfound", onLocationFound);
-
-    //           // Add routing control with user's current location and garden location
-    //           window.routingControl = L.Routing.control({
-    //             waypoints: [e.latlng, L.latLng(gardenCoords)],
-    //             router: new L.Routing.osrmv1({
-    //               serviceUrl: "https://router.project-osrm.org/route/v1",
-    //             }),
-    //             show: false,
-    //             lineOptions: {
-    //               styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
-    //             },
-    //             fitSelectedRoutes: true,
-    //           }).addTo(map);
-
-
-    //           // Create a new Mapbox map
-    //           // Define the routing control options
-
-    //           // var routingOptions = {
-    //           //   waypoints: [e.latlng, L.latLng(gardenCoords)],
-    //           //   show: false,
-    //           //   lineOptions: {
-    //           //     styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
-    //           //   },
-    //           //   fitSelectedRoutes: true,
-    //           // };
-
-    //           // // Create the routing control with the default mode (walking)
-    //           // window.routingControl = L.Routing.control({
-    //           //   router: new L.Routing.mapbox(
-    //           //     "pk.eyJ1IjoiaGd1bzUiLCJhIjoiY2xnYjJpYXJpMGEycDN0bnphNDR4bGMzNCJ9.7_xQzJQ2f3jt5TgMkRTI0A",
-    //           //     {
-    //           //       profile: "mapbox/walking",
-    //           //     }
-    //           //   ),
-    //           //   ...routingOptions,
-    //           // }).addTo(map);
-    //         }
-    //       });
-    //   });
-
     function flyToGarden() {
       // Fly out to a wider view before flying to the garden location
       map.flyTo(map.getCenter(), zoomOutLevel, { animate: true, duration: 0.5 })
@@ -266,30 +104,73 @@ document.addEventListener("DOMContentLoaded", function () {
       gardenElement.bindPopup(
         `<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image">
         <p class="popup-text">${gardenName}</p>
-        <button id="navigateButton" class="navigate-button">Navigate to this garden</button>`,
+        <button id="navigateButton" class="navigate-button">Navigate by Google Maps</button>`,
         { className: "custom-popup", offset: offset }
       );
 
       gardenElement.openPopup();
 
       // Add event listener for the navigate button
-      document.getElementById("navigateButton").addEventListener("click", initiateNavigation);
+      document.getElementById("navigateButton").addEventListener("click", () => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            const userLatitude = position.coords.latitude;
+            const userLongitude = position.coords.longitude;
+            initiateNavigation(userLatitude, userLongitude);
+          }, (error) => {
+            console.error("Error getting user location:", error);
+            alert("Unable to get your current location. Please check your device settings and try again.");
+          });
+        } else {
+          alert("Geolocation is not supported by your browser. Please update or try a different browser.");
+        }
+      });
     }
 
-    function initiateNavigation() {
-      // Remove any existing routing control
-      if (window.routingControl) {
-        map.removeControl(window.routingControl);
+    // function initiateNavigation() {
+    //   // Remove any existing routing control
+    //   if (window.routingControl) {
+    //     map.removeControl(window.routingControl);
+    //   }
+
+    //   // Get user's current location
+    //   map.locate({ setView: true, maxZoom: 16 });
+
+    //   // Add event listener for location found
+    //   map.on("locationfound", onLocationFound);
+    // }
+
+    // open the navigation in google maps app or web browser
+    function initiateNavigation(userLatitude, userLongitude) {
+      const latitude = gardenCoords[0];
+      const longitude = gardenCoords[1];
+      const googleMapsAppUrl = `comgooglemaps://?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&directionsmode=walking`;
+      const googleMapsWebUrl = `https://maps.google.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
+    
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // If on iOS or Android, try to open Google Maps app
+        window.open(googleMapsAppUrl, '_blank');
+        setTimeout(() => {
+          // If the Google Maps app is not installed or did not open, fallback to the browser
+          if (!document.hidden) {
+            window.open(googleMapsWebUrl, '_blank');
+          }
+        }, 25);
+      } else {
+        // If not on iOS or Android, open Google Maps in the browser
+        window.open(googleMapsWebUrl, '_blank');
       }
-
-      // Get user's current location
-      map.locate({ setView: true, maxZoom: 16 });
-
-      // Add event listener for location found
-      map.on("locationfound", onLocationFound);
     }
+
+    // function initiateNavigation() {
+    //   const latitude = gardenCoords[0];
+    //   const longitude = gardenCoords[1];
+    //   const url = `https://maps.google.com/?daddr=${latitude},${longitude}&dirflg=w`;
+    //   window.open(url, '_blank');
+    // }
 
     function onLocationFound(e) {
+      
       // Remove the event listener to prevent multiple routes
       map.off("locationfound", onLocationFound);
 
@@ -300,11 +181,11 @@ document.addEventListener("DOMContentLoaded", function () {
         //   serviceUrl: "https://router.project-osrm.org/route/v1",s
         // }),
         router: new L.Routing.mapbox(
-                        "pk.eyJ1IjoiaGd1bzUiLCJhIjoiY2xnYjJpYXJpMGEycDN0bnphNDR4bGMzNCJ9.7_xQzJQ2f3jt5TgMkRTI0A",
-                        {
-                          profile: "mapbox/walking",
-                        }
-                      ),
+          "pk.eyJ1IjoiaGd1bzUiLCJhIjoiY2xnYjJpYXJpMGEycDN0bnphNDR4bGMzNCJ9.7_xQzJQ2f3jt5TgMkRTI0A",
+          {
+            profile: "mapbox/walking",
+          }
+        ),
         show: false,
         lineOptions: {
           styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
