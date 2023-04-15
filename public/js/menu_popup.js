@@ -1,6 +1,8 @@
 
-document.addEventListener("DOMContentLoaded", function () {
+// https://stackoverflow.com/questions/6703349/open-google-maps-app-from-a-browser-with-default-start-location-on-android-and-i
 
+document.addEventListener("DOMContentLoaded", function () {
+  
   const menuButton = document.getElementById("menuButton");
   const dropdownContent = document.querySelector(".dropdown-content");
 
@@ -102,30 +104,73 @@ document.addEventListener("DOMContentLoaded", function () {
       gardenElement.bindPopup(
         `<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image">
         <p class="popup-text">${gardenName}</p>
-        <button id="navigateButton" class="navigate-button">Navigate to this garden</button>`,
+        <button id="navigateButton" class="navigate-button">Navigate by Google Maps</button>`,
         { className: "custom-popup", offset: offset }
       );
 
       gardenElement.openPopup();
 
       // Add event listener for the navigate button
-      document.getElementById("navigateButton").addEventListener("click", initiateNavigation);
+      document.getElementById("navigateButton").addEventListener("click", () => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            const userLatitude = position.coords.latitude;
+            const userLongitude = position.coords.longitude;
+            initiateNavigation(userLatitude, userLongitude);
+          }, (error) => {
+            console.error("Error getting user location:", error);
+            alert("Unable to get your current location. Please check your device settings and try again.");
+          });
+        } else {
+          alert("Geolocation is not supported by your browser. Please update or try a different browser.");
+        }
+      });
     }
 
-    function initiateNavigation() {
-      // Remove any existing routing control
-      if (window.routingControl) {
-        map.removeControl(window.routingControl);
+    // function initiateNavigation() {
+    //   // Remove any existing routing control
+    //   if (window.routingControl) {
+    //     map.removeControl(window.routingControl);
+    //   }
+
+    //   // Get user's current location
+    //   map.locate({ setView: true, maxZoom: 16 });
+
+    //   // Add event listener for location found
+    //   map.on("locationfound", onLocationFound);
+    // }
+
+    // open the navigation in google maps app or web browser
+    function initiateNavigation(userLatitude, userLongitude) {
+      const latitude = gardenCoords[0];
+      const longitude = gardenCoords[1];
+      const googleMapsAppUrl = `comgooglemaps://?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&directionsmode=walking`;
+      const googleMapsWebUrl = `https://maps.google.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
+    
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // If on iOS or Android, try to open Google Maps app
+        window.open(googleMapsAppUrl, '_blank');
+        setTimeout(() => {
+          // If the Google Maps app is not installed or did not open, fallback to the browser
+          if (!document.hidden) {
+            window.open(googleMapsWebUrl, '_blank');
+          }
+        }, 25);
+      } else {
+        // If not on iOS or Android, open Google Maps in the browser
+        window.open(googleMapsWebUrl, '_blank');
       }
-
-      // Get user's current location
-      map.locate({ setView: true, maxZoom: 16 });
-
-      // Add event listener for location found
-      map.on("locationfound", onLocationFound);
     }
+
+    // function initiateNavigation() {
+    //   const latitude = gardenCoords[0];
+    //   const longitude = gardenCoords[1];
+    //   const url = `https://maps.google.com/?daddr=${latitude},${longitude}&dirflg=w`;
+    //   window.open(url, '_blank');
+    // }
 
     function onLocationFound(e) {
+      
       // Remove the event listener to prevent multiple routes
       map.off("locationfound", onLocationFound);
 
