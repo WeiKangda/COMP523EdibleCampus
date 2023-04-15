@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gardenElement.bindPopup(
         `<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image">
         <p class="popup-text">${gardenName}</p>
-        <button id="navigateButton" class="navigate-button">Navigate by Google Maps</button>`,
+        <button id="navigateButton" class="navigate-button"><i class="fas fa-map-marker-alt"></i> Navigate by Google Maps</button>`,
         { className: "custom-popup", offset: offset }
       );
 
