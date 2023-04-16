@@ -22,7 +22,7 @@ let layer = new L.TileLayer(
   {
     attribution:
       'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-    maxZoom: 18,
+    maxZoom: 19,
   }
 );
 map.addLayer(layer);
