@@ -10,21 +10,6 @@ export async function fetchComments() {
     const commentsList = document.getElementById('comments-list');
     commentsList.innerHTML = '';
 
-    // recentComments.forEach((comment) => {
-    //   const commentDiv = document.createElement('div');
-    //   commentDiv.classList.add('comment');
-
-    //   const commentText = document.createElement('p');
-    //   commentText.textContent = comment.comment;
-    //   commentDiv.appendChild(commentText);
-
-    //   const commentDate = document.createElement('span');
-    //   commentDate.textContent = new Date(comment.time).toLocaleDateString();
-    //   commentDiv.appendChild(commentDate);
-
-    //   commentsList.appendChild(commentDiv);
-    // });
-
     recentComments.forEach((comment) => {
       const commentDiv = document.createElement('div');
       commentDiv.classList.add('comment');
