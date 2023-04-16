@@ -61,3 +61,6 @@ https://docs.google.com/document/d/1KQyQVfPCrYbR3sDGgltKUBp_-swKEJ_v8UtO2prn-C4/
 
 ## Reference for Mapbox API
 https://docs.google.com/document/d/1Gdp_5IR20hRgmq-TNJH8lBUP1mFt2k3poHxOTfeulnc/edit?usp=sharing
+
+## Reference for Postimage
+https://docs.google.com/document/d/1c7RYiXriPJuYCGJTkClAGQrARLwYR7JMl0Q6SAnYRYs/edit?usp=sharing
