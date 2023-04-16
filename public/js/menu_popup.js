@@ -1,5 +1,4 @@
-
-// https://stackoverflow.com/questions/6703349/open-google-maps-app-from-a-browser-with-default-start-location-on-android-and-i
+import { displayGardenContent } from './displayGardenContent.js';
 
 document.addEventListener("DOMContentLoaded", function () {
   
@@ -19,11 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  dropdownContent.addEventListener("click", function (event) {
+  dropdownContent.addEventListener("click", async function (event) {
     const target = event.target;
     if (target.classList.contains("garden-button")) {
       const garden = target.getAttribute("data-garden");
+      
       centerOnGarden(garden);
+      await displayGardenContent(garden);
       dropdownContent.style.display = "none";
     }
   });
@@ -36,48 +37,48 @@ document.addEventListener("DOMContentLoaded", function () {
     gardenImageSrc = "./img/EC_Logo.jpg";
     offset = [0, 0];
 
-    if (garden === "main") {
+    if (garden === "Main Garden") {
       gardenCoords = [35.911437, -79.047336];
       gardenElement = main_garden;
       gardenName = "Main Garden";
       gardenImageSrc = "./img/main_garden.jpg";
-    } else if (garden === "lenoir") {
+    } else if (garden === "Lenoir Garden") {
       gardenCoords = [35.910299, -79.048571];
       gardenElement = lenoir;
       gardenName = "Lenoir Garden";
       gardenImageSrc = "./img/Lenoir.jpeg";
       offset = [15, -10];
-    } else if (garden === "graham") {
+    } else if (garden === "Graham Garden") {
       gardenCoords = [35.913114, -79.047187];
       gardenElement = graham;
       gardenName = "Graham Garden";
       gardenImageSrc = "./img/graham.jpeg";
-    } else if (garden === "stacy") {
+    } else if (garden === "Stacy Garden") {
       gardenCoords = [35.912904, -79.045814];
       gardenElement = stacy;
       gardenName = "Stacy Garden";
       gardenImageSrc = "./img/Stacy.jpeg";
-    } else if (garden === "davis") {
+    } else if (garden === "Davis Garden") {
       gardenCoords = [35.910711, -79.048374];
       gardenElement = davis;
       gardenName = "Davis Garden";
       gardenImageSrc = "./img/Davis.jpeg";
-    } else if (garden === "ramsHeadPlaza") {
+    } else if (garden === "Rams Head Plaza Garden") {
       gardenCoords = [35.905647, -79.045832];
       gardenElement = rams_head_plaza;
       gardenName = "Rams Head Plaza Garden";
       gardenImageSrc = "./img/RamsHeadPlaza.jpeg";
-    } else if (garden === "SASBPlaza") {
+    } else if (garden === "SASB Plaza Garden") {
       gardenCoords = [35.904367, -79.044742];
       gardenElement = SASB_plaza;
       gardenName = "SASB Plaza Garden";
       gardenImageSrc = "./img/SASBPlaza.jpeg";
-    } else if (garden === "hardin") {
+    } else if (garden === "Hardin Garden") {
       gardenCoords = [35.903815, -79.046311];
       gardenElement = hardin;
       gardenName = "Hardin Garden";
       gardenImageSrc = "./img/Hardin.webp";
-    } else if (garden === "fetzer") {
+    } else if (garden === "Fetzer Garden") {
       gardenCoords = [35.909124, -79.04647];
       gardenElement = fetzer;
       gardenName = "Fetzer Garden";
@@ -199,4 +200,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   }
 });
-

@@ -252,3 +252,10 @@ const main_garden = L.polygon([
 //   document.getElementById("plantTab").style.width = "0%";
 //   document.getElementById("map").style.height = "80vh";
 // }
+
+
+// import { loadGardenContent } from "/gardenContent.js";
+
+
+
+// loadGardenContent();

@@ -1,0 +1,54 @@
+#description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50vh;
+  background-color: #563c5b;
+  color: #fff;
+  margin-bottom: 0;
+  overflow: auto; /* Add scrollbars if the content overflows */
+  padding: 1rem; /* Add some padding around the content */
+}
+
+/* Set font family and color for h3 and p in description section */
+#description h3,
+#description p {
+  font-family: "Roboto";
+  color: #fff;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 5px;
+}
+
+
+
+
+.plant-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.plant-card {
+  width: calc(33% - 1rem); /* Adjust this value to control the width of each plant item */
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.plant-card img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.garden-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.5rem;
+}

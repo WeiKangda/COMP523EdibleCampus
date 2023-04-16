@@ -4,6 +4,7 @@ const fs = require("fs");
 const XLSX = require("xlsx");
 const ExcelJS = require("exceljs");
 const app = express();
+const path = require('path');
 const port = 3000;
 
 app.use(express.json());
@@ -117,6 +118,19 @@ const readComments = async () => {
 
   return comments;
 };
+
+app.get('/gardenContent', (req, res) => {
+  const filePath = path.join(__dirname, 'gardenContent','gardenContent.xlsx');
+  fs.access(filePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.error('File not found:', err);
+      res.status(404).send('File not found');
+    } else {
+      res.sendFile(filePath);
+    }
+  });
+});
+
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
