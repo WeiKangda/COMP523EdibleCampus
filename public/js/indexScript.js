@@ -27,6 +27,7 @@ let layer = new L.TileLayer(
 );
 map.addLayer(layer);
 
+// create polygons for gardens
 const graham = L.polygon([
   [35.913114, -79.047187],
   [35.913163, -79.047168],
@@ -55,20 +56,6 @@ const davis = L.polygon([
 ])
   .addTo(map)
   .bindPopup("Davis");
-
-// const lenoir = L.polygon([
-//     [35.910369, -79.048509],
-//     [35.910386, -79.048453],
-//     [35.910356, -79.048434],
-//     [35.910337, -79.048490]
-// ]).addTo(map).bindPopup('lenoir');
-
-// const lenoir = L.polygon([
-//     [35.910369, -79.048509],
-//     [35.910386, -79.048453],
-//     [35.910356, -79.048434],
-//     [35.910337, -79.048490]
-// ]).addTo(map).bindPopup('lenoir');
 
 const lenoir = L.polygon([
   [35.910275, -79.048656],
@@ -125,7 +112,6 @@ const fetzer = L.polygon([
   .addTo(map)
   .bindPopup("Fetzer");
 
-// Add a polygon for the main garden and a popup label for it
 const main_garden = L.polygon([
   [35.911357, -79.047555],
   [35.911437, -79.047336],
@@ -134,128 +120,3 @@ const main_garden = L.polygon([
 ])
   .addTo(map)
   .bindPopup("Main Garden.")
-  .openPopup();
-
-// // Add an event listener for the "Center on Fetzer" button
-// document.getElementById("centerFetzerBtn").addEventListener("click", centerOnFetzer);
-
-// function centerOnFetzer() {
-//     // Center the map on Fetzer's coordinates
-//     const fetzerCoords = [35.909124, -79.046470];
-//     map.setView(fetzerCoords, 18);
-
-//     // Open Fetzer's popup
-//     fetzer.openPopup();
-// }
-
-// Add an event listener for the "Center on Lenoir" button
-// document
-//   .getElementById("centerLenoirBtn")
-//   .addEventListener("click", centerOnLenoir);
-
-// function centerOnLenoir() {
-//   const lenoirCenter = [35.910299, -79.048571];
-//   map.setView(lenoirCenter, 17);
-
-//   lenoir.openPopup();
-// }
-
-// // Add an event listener for the "Center on Graham" button
-// document
-//   .getElementById("centerGrahamBtn")
-//   .addEventListener("click", centerOnGraham);
-
-// function centerOnGraham() {
-//   const grahamCenter = [35.91314, -79.047127];
-//   map.setView(grahamCenter, 17);
-
-//   graham.openPopup();
-// }
-
-// // Add an event listener for the "Center on Stacy" button
-// document
-//   .getElementById("centerStacyBtn")
-//   .addEventListener("click", centerOnStacy);
-
-// function centerOnStacy() {
-//   const stacyCenter = [35.912915, -79.045755];
-//   map.setView(stacyCenter, 17);
-
-//   stacy.openPopup();
-// }
-
-// // Add an event listener for the "Center on Davis" button
-// document
-//   .getElementById("centerDavisBtn")
-//   .addEventListener("click", centerOnDavis);
-
-// function centerOnDavis() {
-//   const davisCenter = [35.910692, -79.048377];
-//   map.setView(davisCenter, 17);
-
-//   davis.openPopup();
-// }
-
-// // Add an event listener for the "Center on Hardin" button
-// document
-//   .getElementById("centerHardinBtn")
-//   .addEventListener("click", centerOnHardin);
-
-// function centerOnHardin() {
-//   const hardinCenter = [35.90384, -79.046266];
-//   map.setView(hardinCenter, 17);
-
-//   hardin.openPopup();
-// }
-
-// // Add an event listener for the "Center on Rams Head Plaza" button
-// document
-//   .getElementById("centerRamsHeadPlazaBtn")
-//   .addEventListener("click", centerOnRamsHeadPlaza);
-
-// function centerOnRamsHeadPlaza() {
-//   const ramsHeadPlazaCenter = [35.905664, -79.045909];
-//   map.setView(ramsHeadPlazaCenter, 17);
-
-//   rams_head_plaza.openPopup();
-// }
-
-// // Add an event listener for the "Center on SASB Plaza" button
-// document
-//   .getElementById("centerSASBPlazaBtn")
-//   .addEventListener("click", centerOnSASBPlaza);
-
-// function centerOnSASBPlaza() {
-//   const sasbPlazaCenter = [35.90438, -79.04479];
-//   map.setView(sasbPlazaCenter, 17);
-
-//   SASB_plaza.openPopup();
-// }
-// function onMapdbClick(e) {
-//   var name = prompt("placed marker at: " + e.latlng);
-//   var marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
-//   marker.bindPopup(name).openPopup();
-// }
-
-// map.on('dblclick', onMapdbClick);
-
-// main_garden.on("click", openPlant);
-
-// function openPlant() {
-//   //document.getElementById("about").style.backgroundColor = '#ff6347';
-//   console.log("openPlant function called!");
-//   document.getElementById("plantTab").style.width = "100%";
-//   document.getElementById("map").style.height = "0vh";
-// }
-
-// function closePlant() {
-//   document.getElementById("plantTab").style.width = "0%";
-//   document.getElementById("map").style.height = "80vh";
-// }
-
-
-// import { loadGardenContent } from "/gardenContent.js";
-
-
-
-// loadGardenContent();

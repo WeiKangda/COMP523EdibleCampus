@@ -4,6 +4,7 @@ body {
   padding: 0;
 }
 
+/* -----------------------------------------------------------------------top section */
 /* Set height and background color for top section */
 #top {
   height: 50px;
@@ -60,9 +61,10 @@ body {
 #search-bar button i {
   color: #fff;
 }
-
+/* -----------------------------------------------------------------------Navbar section */
 /* Set font family, display and padding for navbar */
 #navbar {
+  background-color: #fff; /* #fff */
   font-family: "Roboto", sans-serif;
   display: flex;
   padding: 5px;
@@ -74,11 +76,11 @@ body {
   height: 15vh;
   max-width: 100%;
 }
-
+/* -----------------------------------------------------------------------Map section */
 /* Set width and height for map */
 #map {
   width: 100%;
-  height: 60vh;
+  height: 80vh;
 }
 
 /* Set font size and padding for h1 */
@@ -90,7 +92,7 @@ h1 {
 /* Set height, background color, display, align-items and justify-content for about section */
 #about {
   height: 20vh;
-  background-color: #563c5b;
+  background-color: #563c5b; /*#563c5b*/
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -103,34 +105,6 @@ p {
   font-family: "Roboto";
   color: rgb(250, 247, 247);
   text-align: center;
-}
-
-/*trying out some stuff */
-.overlay {
-  font-family: "Roboto", sans-serif;
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  overflow-x: hidden;
-  transition: 0.5s;
-}
-
-.overlay-content {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.overlay a {
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
 }
 
 

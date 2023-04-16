@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   height: 50vh;
-  background-color: #563c5b;
+  background-color: tomato; /*#563c5b*/
   color: #fff;
   margin-bottom: 0;
   overflow: auto; /* Add scrollbars if the content overflows */
