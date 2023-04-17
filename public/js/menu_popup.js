@@ -34,55 +34,54 @@ document.addEventListener("DOMContentLoaded", function () {
     // let gardenCoords;
     // let gardenName;
     let gardenCoords, gardenElement, gardenName, gardenImageSrc, offset;
-    gardenImageSrc = "./img/EC_Logo.jpg";
     offset = [0, 0];
 
     if (garden === "Main Garden") {
       gardenCoords = [35.911437, -79.047336];
       gardenElement = main_garden;
       gardenName = "Main Garden";
-      gardenImageSrc = "./img/main_garden.jpg";
+      gardenImageSrc = "./img/main_garden.png";
     } else if (garden === "Lenoir Garden") {
       gardenCoords = [35.910299, -79.048571];
       gardenElement = lenoir;
       gardenName = "Lenoir Garden";
-      gardenImageSrc = "./img/Lenoir.jpeg";
+      gardenImageSrc = "./img/Lenoir.png";
       offset = [15, -10];
     } else if (garden === "Graham Garden") {
       gardenCoords = [35.913114, -79.047187];
       gardenElement = graham;
       gardenName = "Graham Garden";
-      gardenImageSrc = "./img/graham.jpeg";
+      gardenImageSrc = "./img/graham.png";
     } else if (garden === "Stacy Garden") {
       gardenCoords = [35.912904, -79.045814];
       gardenElement = stacy;
       gardenName = "Stacy Garden";
-      gardenImageSrc = "./img/Stacy.jpeg";
+      gardenImageSrc = "./img/Stacy.png";
     } else if (garden === "Davis Garden") {
       gardenCoords = [35.910711, -79.048374];
       gardenElement = davis;
       gardenName = "Davis Garden";
-      gardenImageSrc = "./img/Davis.jpeg";
+      gardenImageSrc = "./img/Davis.png";
     } else if (garden === "Rams Head Plaza Garden") {
       gardenCoords = [35.905647, -79.045832];
       gardenElement = rams_head_plaza;
       gardenName = "Rams Head Plaza Garden";
-      gardenImageSrc = "./img/RamsHeadPlaza.jpeg";
+      gardenImageSrc = "./img/RamsHeadPlaza.png";
     } else if (garden === "SASB Plaza Garden") {
       gardenCoords = [35.904367, -79.044742];
       gardenElement = SASB_plaza;
       gardenName = "SASB Plaza Garden";
-      gardenImageSrc = "./img/SASBPlaza.jpeg";
+      gardenImageSrc = "./img/SASBPlaza.png";
     } else if (garden === "Hardin Garden") {
       gardenCoords = [35.903815, -79.046311];
       gardenElement = hardin;
       gardenName = "Hardin Garden";
-      gardenImageSrc = "./img/Hardin.webp";
+      gardenImageSrc = "./img/Hardin.png";
     } else if (garden === "Fetzer Garden") {
       gardenCoords = [35.909124, -79.04647];
       gardenElement = fetzer;
       gardenName = "Fetzer Garden";
-      gardenImageSrc = "./img/Fetzer.jpeg";
+      gardenImageSrc = "./img/Fetzer.png";
     }
 
     map.closePopup();
