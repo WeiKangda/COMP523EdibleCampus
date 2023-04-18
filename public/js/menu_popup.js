@@ -1,7 +1,6 @@
-import { displayGardenContent } from './displayGardenContent.js';
+import { displayGardenContent } from "./displayGardenContent.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  
   const menuButton = document.getElementById("menuButton");
   const dropdownContent = document.querySelector(".dropdown-content");
 
@@ -9,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function toggleDropdown(event) {
     event.stopPropagation();
-    dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+    dropdownContent.style.display =
+      dropdownContent.style.display === "block" ? "none" : "block";
   }
 
   document.addEventListener("click", function (event) {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const target = event.target;
     if (target.classList.contains("garden-button")) {
       const garden = target.getAttribute("data-garden");
-      
+
       centerOnGarden(garden);
       await displayGardenContent(garden);
       dropdownContent.style.display = "none";
@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function centerOnGarden(garden) {
-
     // let gardenCoords;
     // let gardenName;
     let gardenCoords, gardenElement, gardenName, gardenImageSrc, offset;
+
     offset = [0, 0];
 
     if (garden === "Main Garden") {
@@ -91,12 +91,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function flyToGarden() {
       // Fly out to a wider view before flying to the garden location
-      map.flyTo(map.getCenter(), zoomOutLevel, { animate: true, duration: 0.5 })
+      map
+        .flyTo(map.getCenter(), zoomOutLevel, { animate: true, duration: 0.5 })
         .once("moveend", flyToGardenCoords);
     }
 
     function flyToGardenCoords() {
-      map.flyTo(gardenCoords, zoomInLevel, { animate: true, duration: 0.5 })
+      map
+        .flyTo(gardenCoords, zoomInLevel, { animate: true, duration: 0.5 })
         .once("moveend", showGardenPopup);
     }
 
@@ -111,113 +113,100 @@ document.addEventListener("DOMContentLoaded", function () {
       gardenElement.openPopup();
 
       // Add event listener for the navigate button
-      document.getElementById("navigateButton").addEventListener("click", () => {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition((position) => {
-            const userLatitude = position.coords.latitude;
-            const userLongitude = position.coords.longitude;
-            initiateNavigation(userLatitude, userLongitude);
-          }, (error) => {
-            console.error("Error getting user location:", error);
-            alert("Unable to get your current location. Please check your device settings and try again.");
-          });
-        } else {
-          alert("Geolocation is not supported by your browser. Please update or try a different browser.");
-        }
-      });
+      // Add event listener for the navigate button
+      document
+        .getElementById("navigateButton")
+        .addEventListener("click", () => {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                const userLatitude = position.coords.latitude;
+                const userLongitude = position.coords.longitude;
+                initiateNavigation(userLatitude, userLongitude);
+              },
+              (error) => {
+                console.error("Error getting user location:", error);
+                alert(
+                  "Unable to get your current location. Please check your device settings and try again."
+                );
+              }
+            );
+          } else {
+            alert(
+              "Geolocation is not supported by your browser. Please update or try a different browser."
+            );
+          }
+        });
     }
 
-    // function initiateNavigation() {
-    //   // Remove any existing routing control
-    //   if (window.routingControl) {
-    //     map.removeControl(window.routingControl);
-    //   }
+  function initiateNavigation(userLatitude, userLongitude) {
+  const latitude = gardenCoords[0];
+  const longitude = gardenCoords[1];
 
-    //   // Get user's current location
-    //   map.locate({ setView: true, maxZoom: 16 });
+  const googleMapsWebUrl = `https://maps.google.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
+  const googleMapsAppUrl = `https://maps.google.com/maps?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
+  const appleMapsWebUrl = `http://maps.apple.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
+  const appleMapsAppUrl = `maps://maps.apple.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w&t=m`;
 
-    //   // Add event listener for location found
-    //   map.on("locationfound", onLocationFound);
-    // }
-
-    /// open the navigation in google maps app or web browser
-    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      if (/CriOS/i.test(navigator.userAgent)) {
-        // If on Chrome for iOS, open Google Maps in the browser
-        window.open(googleMapsWebUrl, '_blank');
-      } else if (/Safari/i.test(navigator.userAgent)) {
-        // If on Safari for iOS, try to open Apple Maps app
-        const appleMapsUrl = `http://maps.apple.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w&t=m`;
-        const appleMapsWebUrl = `https://maps.apple.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w&t=m`;
-  
-        // Check if the Apple Maps app is installed
-        if (window.MSStream) {
-          // If on iOS 8 or 9, open Apple Maps app
-          window.open(appleMapsUrl, '_blank');
-        } else if (navigator.platform.indexOf("Mac") != -1) {
-          // If on a Mac computer, open Apple Maps in the browser
-          window.open(appleMapsWebUrl, '_blank');
-        } else {
-          // If on iOS 10 or later, try to open Apple Maps app
-          window.location.href = appleMapsUrl;
-          setTimeout(() => {
-            // If the Apple Maps app did not open, fallback to the browser
-            if (!document.hidden) {
-              window.location.href = appleMapsWebUrl;
-            }
-          }, 25);
-        }
+  if (/iPhone|iPod/i.test(navigator.userAgent)) {
+    // If on iPhone or iPod, try to open Apple Maps app
+    window.open(appleMapsAppUrl, "_blank");
+    setTimeout(() => {
+      // If the Apple Maps app is not installed or did not open, fallback to Google Maps app
+      if (!document.hidden) {
+        window.open(googleMapsAppUrl, "_blank");
+        setTimeout(() => {
+          // If the Google Maps app is not installed or did not open, fallback to Google Maps in the browser
+          if (!document.hidden) {
+            window.open(googleMapsWebUrl, "_blank");
+          }
+        }, 25);
       }
-    } else if (/Android/i.test(navigator.userAgent)) {
-      // If on Android, try to open Google Maps app
-      window.open(googleMapsAppUrl, '_blank');
-      setTimeout(() => {
-        // If the Google Maps app is not installed or did not open, fallback to the browser
-        if (!document.hidden) {
-          window.open(googleMapsWebUrl, '_blank');
-        }
-      }, 25);
-    } else {
-      // If not on iOS or Android, open Google Maps in the browser
-      window.open(googleMapsWebUrl, '_blank');
-    }
+    }, 25);
+  } else if (/iPad/i.test(navigator.userAgent)) {
+    // If on iPad, open Apple Maps web URL
+    window.open(appleMapsWebUrl, "_blank");
+  } else if (/Android/i.test(navigator.userAgent)) {
+    // If on Android, try to open Google Maps app
+    window.open(googleMapsAppUrl, "_blank");
+    setTimeout(() => {
+      // If the Google Maps app is not installed or did not open, fallback to Google Maps in the browser
+      if (!document.hidden) {
+        window.open(googleMapsWebUrl, "_blank");
+      }
+    }, 25);
+  } else {
+    // If not on iOS or Android, open Google Maps in the browser
+    window.open(googleMapsWebUrl, "_blank");
   }
-
-
-    // function initiateNavigation() {
-    //   const latitude = gardenCoords[0];
-    //   const longitude = gardenCoords[1];
-    //   const url = `https://maps.google.com/?daddr=${latitude},${longitude}&dirflg=w`;
-    //   window.open(url, '_blank');
-    // }
-
-    // function onLocationFound(e) {
-      
-    //   // Remove the event listener to prevent multiple routes
-    //   map.off("locationfound", onLocationFound);
-
-    //   // Add routing control with user's current location and garden location
-    //   window.routingControl = L.Routing.control({
-    //     waypoints: [e.latlng, L.latLng(gardenCoords)],
-    //     // router: new L.Routing.osrmv1({
-    //     //   serviceUrl: "https://router.project-osrm.org/route/v1",s
-    //     // }),
-    //     router: new L.Routing.mapbox(
-    //       "pk.eyJ1IjoiaGd1bzUiLCJhIjoiY2xnYjJpYXJpMGEycDN0bnphNDR4bGMzNCJ9.7_xQzJQ2f3jt5TgMkRTI0A",
-    //       {
-    //         profile: "mapbox/walking",
-    //       }
-    //     ),
-    //     show: false,
-    //     lineOptions: {
-    //       styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
-    //     },
-    //     fitSelectedRoutes: true,
-    //   }).addTo(map);
-    // }
+}
 
     // Start the process by flying to the garden
     flyToGarden();
-
   }
 });
+
+// function onLocationFound(e) {
+
+//   // Remove the event listener to prevent multiple routes
+//   map.off("locationfound", onLocationFound);
+
+//   // Add routing control with user's current location and garden location
+//   window.routingControl = L.Routing.control({
+//     waypoints: [e.latlng, L.latLng(gardenCoords)],
+//     // router: new L.Routing.osrmv1({
+//     //   serviceUrl: "https://router.project-osrm.org/route/v1",s
+//     // }),
+//     router: new L.Routing.mapbox(
+//       "pk.eyJ1IjoiaGd1bzUiLCJhIjoiY2xnYjJpYXJpMGEycDN0bnphNDR4bGMzNCJ9.7_xQzJQ2f3jt5TgMkRTI0A",
+//       {
+//         profile: "mapbox/walking",
+//       }
+//     ),
+//     show: false,
+//     lineOptions: {
+//       styles: [{ color: "blue", opacity: 0.8, weight: 5 }],
+//     },
+//     fitSelectedRoutes: true,
+//   }).addTo(map);
+// }

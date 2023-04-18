@@ -3,12 +3,15 @@
 <!-- Start of Head section -->
 
 <head>
-  <title>Edible Garden UNC</title>
+  <title>Edible Graden UNC</title>
   <meta charset="UTF-8" />
 
   <script src="lib/xlsx.full.min.js"></script>
 
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/swiper/swiper-bundle.min.css"
+  />
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
   <script src="js/swiperInit.js"></script>
@@ -70,7 +73,7 @@
 
   <!-- Navbar section -->
   <div id="navbar">
-    <a href="https://ncbg.unc.edu/" alt="bLogo"><img src="./img/eclogo.jpg" /></a>
+    <a href="https://ncbg.unc.edu/" alt="eclogo"><img src="./img/eclogo.jpg" /></a>
 
     <div class="dropdown">
       <button class="dropbtn" id="menuButton">Choose Gardens</button>
@@ -80,8 +83,7 @@
         <a href="#" class="garden-button" data-garden="Graham Garden" id="centerGraham">Graham</a>
         <a href="#" class="garden-button" data-garden="Stacy Garden" id="centerStacy">Stacy</a>
         <a href="#" class="garden-button" data-garden="Davis Garden" id="centerDavis">Davis</a>
-        <a href="#" class="garden-button" data-garden="Rams Head Plaza Garden" id="centerRamsHeadPlaza">Rams Head
-          Plaza</a>
+        <a href="#" class="garden-button" data-garden="Rams Head Plaza Garden" id="centerRamsHeadPlaza">Rams Head Plaza</a>
         <a href="#" class="garden-button" data-garden="SASB Plaza Garden" id="centerSASBPlaza">SASB Plaza</a>
         <a href="#" class="garden-button" data-garden="Hardin Garden" id="centerHardin">Hardin</a>
         <a href="#" class="garden-button" data-garden="Fetzer Garden" id="centerFetzer">Fetzer</a>
@@ -99,33 +101,23 @@
   <script src="js/menu_popup.js" type="module"></script>
 
   <!-- Description section -->
-  <!-- <div id="description">
-    <div class="garden-title">
-      <h4>click the garden name in the dropdown menu</h4>
-    </div>
-    <div id="gardenContent">
-      <div class="swiper-container">
-        <div class="swiper-wrapper plant-grid">
-          
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <div id="description">
-    <div class="garden-title">
-      <h4>Click the garden name in the dropdown menu</h4>
-    </div>
-    <div id="gardenContent">
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <!-- Plant cards will be inserted here -->
+    <div class="container">
+      <div id="gardenContent">
+        <div class="garden-title"></div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper plant-grid">
+            
+                <h3>description area</h3>
+
+             
+            
+          </div>
         </div>
-      </div>
     </div>
   </div>
-
-
+</div>
+  
 
   <!-- Comments section -->
   <div id="comments-section">
@@ -136,7 +128,7 @@
 
   <div class="comment-area">
     <form id="comment-form">
-      <div class="g-recaptcha" data-sitekey="6LdY7nslAAAAADxC6vidh80NuM4m3ImWRmMnJswK"></div>
+      <div class="g-recaptcha" data-sitekey="6LdhU5YlAAAAAGdHbNYaICFPEc6RM3ZZXRv8N68A"></div>
       <label for="comment" style="color: white"></label>
 
       <textarea id="comment" name="comment"></textarea>
