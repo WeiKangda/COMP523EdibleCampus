@@ -28,7 +28,7 @@ npm install express xlsx multer express-rate-limit axios
 5. Run the application:
 node app.js
 
-6. Open your browser and navigate to `http://localhost:3000`.
+6. Open your browser and navigate to `http://localhost:8080`.
 
 ## Usage
 
