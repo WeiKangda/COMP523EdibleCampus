@@ -140,27 +140,49 @@ document.addEventListener("DOMContentLoaded", function () {
     //   map.on("locationfound", onLocationFound);
     // }
 
-    // open the navigation in google maps app or web browser
-    function initiateNavigation(userLatitude, userLongitude) {
-      const latitude = gardenCoords[0];
-      const longitude = gardenCoords[1];
-      const googleMapsAppUrl = `comgooglemaps://?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&directionsmode=walking`;
-      const googleMapsWebUrl = `https://maps.google.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
-    
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // If on iOS or Android, try to open Google Maps app
-        window.open(googleMapsAppUrl, '_blank');
-        setTimeout(() => {
-          // If the Google Maps app is not installed or did not open, fallback to the browser
-          if (!document.hidden) {
-            window.open(googleMapsWebUrl, '_blank');
-          }
-        }, 25);
-      } else {
-        // If not on iOS or Android, open Google Maps in the browser
+    /// open the navigation in google maps app or web browser
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      if (/CriOS/i.test(navigator.userAgent)) {
+        // If on Chrome for iOS, open Google Maps in the browser
         window.open(googleMapsWebUrl, '_blank');
+      } else if (/Safari/i.test(navigator.userAgent)) {
+        // If on Safari for iOS, try to open Apple Maps app
+        const appleMapsUrl = `http://maps.apple.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w&t=m`;
+        const appleMapsWebUrl = `https://maps.apple.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w&t=m`;
+  
+        // Check if the Apple Maps app is installed
+        if (window.MSStream) {
+          // If on iOS 8 or 9, open Apple Maps app
+          window.open(appleMapsUrl, '_blank');
+        } else if (navigator.platform.indexOf("Mac") != -1) {
+          // If on a Mac computer, open Apple Maps in the browser
+          window.open(appleMapsWebUrl, '_blank');
+        } else {
+          // If on iOS 10 or later, try to open Apple Maps app
+          window.location.href = appleMapsUrl;
+          setTimeout(() => {
+            // If the Apple Maps app did not open, fallback to the browser
+            if (!document.hidden) {
+              window.location.href = appleMapsWebUrl;
+            }
+          }, 25);
+        }
       }
+    } else if (/Android/i.test(navigator.userAgent)) {
+      // If on Android, try to open Google Maps app
+      window.open(googleMapsAppUrl, '_blank');
+      setTimeout(() => {
+        // If the Google Maps app is not installed or did not open, fallback to the browser
+        if (!document.hidden) {
+          window.open(googleMapsWebUrl, '_blank');
+        }
+      }, 25);
+    } else {
+      // If not on iOS or Android, open Google Maps in the browser
+      window.open(googleMapsWebUrl, '_blank');
     }
+  }
+
 
     // function initiateNavigation() {
     //   const latitude = gardenCoords[0];

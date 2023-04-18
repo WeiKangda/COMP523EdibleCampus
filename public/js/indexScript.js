@@ -18,7 +18,7 @@ let map = new L.map("map", mapOptions);
 
 // var for layer object, and add to map
 let layer = new L.TileLayer(
-  "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   {
     attribution:
       'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
