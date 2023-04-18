@@ -29,7 +29,7 @@ async function verifyRecaptcha(recaptchaResponse) {
       null,
       {
         params: {
-          secret: "6LdhU5YlAAAAAJ82gK3iNYw5PHX-PeRF4uUpuZQD",
+          secret: "",
           response: recaptchaResponse,
         },
       }
