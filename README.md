@@ -28,7 +28,7 @@ npm install express xlsx multer express-rate-limit axios
 5. Run the application:
 node app.js
 
-6. Open your browser and navigate to `http://localhost:3000`.
+6. Open your browser and navigate to `http://localhost:8080`.
 
 ## Usage
 
@@ -55,3 +55,12 @@ node app.js
 ## License
 
 This project is licensed under the MIT License. 
+
+## Reference for Google reCaptcha
+https://docs.google.com/document/d/1KQyQVfPCrYbR3sDGgltKUBp_-swKEJ_v8UtO2prn-C4/edit?usp=sharing
+
+## Reference for Mapbox API
+https://docs.google.com/document/d/1Gdp_5IR20hRgmq-TNJH8lBUP1mFt2k3poHxOTfeulnc/edit?usp=sharing
+
+## Reference for Postimage
+https://docs.google.com/document/d/1c7RYiXriPJuYCGJTkClAGQrARLwYR7JMl0Q6SAnYRYs/edit?usp=sharing

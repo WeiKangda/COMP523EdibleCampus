@@ -29,7 +29,9 @@ async function verifyRecaptcha(recaptchaResponse) {
       null,
       {
         params: {
+
           secret: "none",
+
           response: recaptchaResponse,
         },
       }
