@@ -1,5 +1,37 @@
 import { displayGardenContent } from "./displayGardenContent.js";
 
+// const uncCampusBounds = [
+//   [35.878870, -79.092428], // Southwest corner coordinates
+//   [35.953868, -79.003511]  // Northeast corner coordinates
+// ];
+
+
+// // Map options, og location and zoom level
+// let mapOptions = {
+//   center: [35.9115137, -79.0476156],
+//   zoom: 17,
+//   minZoom: 14,
+//   maxBounds: uncCampusBounds, // Restrict the map to the UNC campus bounds
+//   maxBoundsViscosity: 1.0 // Makes the map stop dragging when it reaches the bounds
+// };
+
+// // Creating a map object
+// let map = new L.map("map", mapOptions);
+
+// // var for layer object, and add to map
+// let layer = new L.TileLayer(
+//   "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+//   {
+//     attribution:
+//       'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+//     maxZoom: 19,
+//   }
+// );
+// map.addLayer(layer);
+
+
+  
+
 document.addEventListener("DOMContentLoaded", function () {
   const menuButton = document.getElementById("menuButton");
   const dropdownContent = document.querySelector(".dropdown-content");
@@ -112,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       gardenElement.openPopup();
 
-      // Add event listener for the navigate button
+    
       // Add event listener for the navigate button
       document
         .getElementById("navigateButton")
@@ -184,7 +216,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Start the process by flying to the garden
     flyToGarden();
   }
+
+  displayGardenContent("Main Garden")
+    .then(() => {
+      centerOnGarden("Main Garden");
+    });
+  
+
 });
+
+
 
 // function onLocationFound(e) {
 
@@ -210,3 +251,4 @@ document.addEventListener("DOMContentLoaded", function () {
 //     fitSelectedRoutes: true,
 //   }).addTo(map);
 // }
+
