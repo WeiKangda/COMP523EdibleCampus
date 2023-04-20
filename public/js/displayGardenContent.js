@@ -20,7 +20,9 @@ export async function displayGardenContent(gardenName) {
     const plantImage = row[1];
     const harvestInfo = row[2];
     const recipe1 = row[3];
+    const recipe1_formated = recipe1.replace(/\n/g, '<br>');
     const recipe2 = row[4];
+    const recipe2_formated = recipe2.replace(/\n/g, '<br>');
 
     const plantInfo = `
     <div class="plant-card swiper-slide">
@@ -28,8 +30,8 @@ export async function displayGardenContent(gardenName) {
     <h3>${plantName}</h3>
     <img src="${plantImage}" alt="${plantName}" width="150">
     <p>Harvest Info: ${harvestInfo}</p>
-    <p>Recipe 1: ${recipe1}</p>
-    <p>Recipe 2: ${recipe2}</p>
+    <p>Recipe 1: ${recipe1_formated}</p>
+    <p>Recipe 2: ${recipe2_formated}</p>
   
   </div>
     `;
