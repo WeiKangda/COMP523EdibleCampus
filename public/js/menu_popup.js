@@ -6,9 +6,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropdownContent = document.querySelector(".dropdown-content");
 
   menuButton.addEventListener("click", toggleDropdown);
+  //menuButton.addEventListener("mouseover", openDropdown);
+  /*
+  menuButton.addEventListener("mouseover", openDropdown);
+  menuButton.addEventListener("mouseout", closeDropdown);
+  Create separate events for mouse over and out to toggle the dropdown menu 
+  */
+  function openDropdown(event) {
+    /* event.stopPropagation(); */
+    dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+  }
 
   function toggleDropdown(event) {
-    event.stopPropagation();
+    /* event.stopPropagation(); */
     dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
   }
 
@@ -18,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  /*
   dropdownContent.addEventListener("click", async function (event) {
     const target = event.target;
     if (target.classList.contains("garden-button")) {
@@ -28,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dropdownContent.style.display = "none";
     }
   });
+  */
 
   function centerOnGarden(garden) {
 

@@ -3,7 +3,6 @@ const uncCampusBounds = [
   [35.953868, -79.003511]  // Northeast corner coordinates
 ];
 
-
 // Map options, og location and zoom level
 let mapOptions = {
   center: [35.9115137, -79.0476156],
@@ -139,6 +138,7 @@ const main_garden = L.polygon([
   .addTo(map)
   .bindPopup("Main Garden.")
 
+/*
 var pop = L.popup()
 
 function onMapClick(e) {
@@ -148,3 +148,4 @@ function onMapClick(e) {
         .openOn(map);
 }
 map.on('click', onMapClick);
+*/

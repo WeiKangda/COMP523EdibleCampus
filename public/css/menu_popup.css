@@ -1,5 +1,6 @@
 
 .dropdown {
+  border: solid 2px aqua;
   position: relative;
   display: inline-block;
 }
@@ -79,7 +80,7 @@
 }
 
 .navigate-button {
-  background-color: #563c5b;
+  background-color: #563c5b; /*#563c5b*/
   border: none;
   border-radius: 4px;
   color: white;
