@@ -37,7 +37,6 @@ const graham = L.polygon([
 {
   color: 'blue',
 })
-  .addTo(map)
   .bindPopup("Graham");
 
 const stacy = L.polygon([
@@ -50,7 +49,6 @@ const stacy = L.polygon([
 {
   color: 'blue',
 })
-  .addTo(map)
   .bindPopup("Stacy");
 
 const davis = L.polygon([
@@ -62,7 +60,6 @@ const davis = L.polygon([
 {
   color: 'blue',
 })
-  .addTo(map)
   .bindPopup("Davis");
 
 const lenoir = L.polygon([
@@ -75,7 +72,6 @@ const lenoir = L.polygon([
 {
   color: 'blue',
 })
-  .addTo(map)
   .bindPopup("Lenoir");
 
 const rams_head_plaza = L.polygon([
@@ -87,7 +83,6 @@ const rams_head_plaza = L.polygon([
 {
   color: 'blue',
 })
-  .addTo(map)
   .bindPopup("Rams Head Plaza");
 
 const SASB_plaza = L.polygon([
@@ -99,7 +94,6 @@ const SASB_plaza = L.polygon([
 {
   color: 'blue',
 })
-  .addTo(map)
   .bindPopup("SASB Plaza");
 
 const hardin = L.polygon([
@@ -111,7 +105,6 @@ const hardin = L.polygon([
 {
   color: 'blue',
 })
-  .addTo(map)
   .bindPopup("Hardin");
 
 const fetzer = L.polygon([
@@ -123,7 +116,6 @@ const fetzer = L.polygon([
 {
   color: 'blue',
 })
-  .addTo(map)
   .bindPopup("Fetzer");
 
 const main_garden = L.polygon([
@@ -134,13 +126,15 @@ const main_garden = L.polygon([
 ],
 {
   color: 'blue',
-}) 
-  .addTo(map)
-  .bindPopup("Main Garden.")
+})
+  .bindPopup("Main_Garden");
 
+var polyLayer = L.layerGroup(
+  [main_garden, fetzer, hardin, SASB_plaza, rams_head_plaza, lenoir, davis, stacy, graham]
+).addTo(map);
 /*
 var pop = L.popup()
-
+  .bindPopup("Main Garden.")
 function onMapClick(e) {
     pop
         .setLatLng(e.latlng)
@@ -148,4 +142,32 @@ function onMapClick(e) {
         .openOn(map);
 }
 map.on('click', onMapClick);
+
+
+
+  layer.on('click', function() {
+    var polyName = ''
+    id = layer._leaflet_id
+    if (id  = 67){
+      polyName = "main_garden"
+    } else if (id = 75) {
+      polyName = "graham"
+    } else if (id = 74) {
+      polyName = "stacy"
+    } else if (id = 73) {
+      polyName = "davis"
+    } else if (id = 72) {
+      polyName = "lenoir"
+    } else if (id = 71) {
+      polyName = "rams_head_plaza"
+    } else if (id = 70) {
+      polyName = "SASB_plaza"
+    } else if (id = 69) {
+      polyName = "hardin"
+    } else if (id = 68) {
+      polyName = "fetzer"
+    }
+    alert('Clicked on polygon with ID ' + polyName + id);
+    window.location.hash = '/' + polyName;
+  });
 */
