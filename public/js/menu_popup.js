@@ -1,38 +1,9 @@
 import { displayGardenContent } from "./displayGardenContent.js";
 
-// const uncCampusBounds = [
-//   [35.878870, -79.092428], // Southwest corner coordinates
-//   [35.953868, -79.003511]  // Northeast corner coordinates
-// ];
-
-
-// // Map options, og location and zoom level
-// let mapOptions = {
-//   center: [35.9115137, -79.0476156],
-//   zoom: 17,
-//   minZoom: 14,
-//   maxBounds: uncCampusBounds, // Restrict the map to the UNC campus bounds
-//   maxBoundsViscosity: 1.0 // Makes the map stop dragging when it reaches the bounds
-// };
-
-// // Creating a map object
-// let map = new L.map("map", mapOptions);
-
-// // var for layer object, and add to map
-// let layer = new L.TileLayer(
-//   "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-//   {
-//     attribution:
-//       'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-//     maxZoom: 19,
-//   }
-// );
-// map.addLayer(layer);
-
+document.addEventListener("DOMContentLoaded", function () {
 
   
 
-document.addEventListener("DOMContentLoaded", function () {
   const menuButton = document.getElementById("menuButton");
   const dropdownContent = document.querySelector(".dropdown-content");
 
@@ -78,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gardenElement = lenoir;
       gardenName = "Lenoir Garden";
       gardenImageSrc = "./img/Lenoir.png";
-      offset = [15, -10];
+      // offset = [15, -10];
     } else if (garden === "Graham Garden") {
       gardenCoords = [35.913114, -79.047187];
       gardenElement = graham;
@@ -144,7 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       gardenElement.openPopup();
 
-    
+      // Update the URL with the selected garden
+      history.pushState({}, "", `?garden=${encodeURIComponent(garden)}`);
+
+      
+
       // Add event listener for the navigate button
       document
         .getElementById("navigateButton")
@@ -171,21 +146,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-  function initiateNavigation(userLatitude, userLongitude) {
-  const latitude = gardenCoords[0];
-  const longitude = gardenCoords[1];
+    function initiateNavigation(userLatitude, userLongitude) {
+      const latitude = gardenCoords[0];
+      const longitude = gardenCoords[1];
 
-  const googleMapsWebUrl = `https://maps.google.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
-  const googleMapsAppUrl = `https://maps.google.com/maps?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
-  const appleMapsWebUrl = `http://maps.apple.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
-  const appleMapsAppUrl = `maps://maps.apple.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w&t=m`;
+      const googleMapsWebUrl = `https://maps.google.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
+      const googleMapsAppUrl = `https://maps.google.com/maps?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
+      const appleMapsWebUrl = `http://maps.apple.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w`;
+      const appleMapsAppUrl = `maps://maps.apple.com/?saddr=${userLatitude},${userLongitude}&daddr=${latitude},${longitude}&dirflg=w&t=m`;
 
-  if (/iPhone|iPod/i.test(navigator.userAgent)) {
-    // If on iPhone or iPod, try to open Apple Maps app
-    window.open(appleMapsAppUrl, "_blank");
-    setTimeout(() => {
-      // If the Apple Maps app is not installed or did not open, fallback to Google Maps app
-      if (!document.hidden) {
+      if (/iPhone|iPod/i.test(navigator.userAgent)) {
+        // If on iPhone or iPod, try to open Apple Maps app
+        window.open(appleMapsAppUrl, "_blank");
+        setTimeout(() => {
+          // If the Apple Maps app is not installed or did not open, fallback to Google Maps app
+          if (!document.hidden) {
+            window.open(googleMapsAppUrl, "_blank");
+            setTimeout(() => {
+              // If the Google Maps app is not installed or did not open, fallback to Google Maps in the browser
+              if (!document.hidden) {
+                window.open(googleMapsWebUrl, "_blank");
+              }
+            }, 25);
+          }
+        }, 25);
+      } else if (/iPad/i.test(navigator.userAgent)) {
+        // If on iPad, open Apple Maps web URL
+        window.open(appleMapsWebUrl, "_blank");
+      } else if (/Android/i.test(navigator.userAgent)) {
+        // If on Android, try to open Google Maps app
         window.open(googleMapsAppUrl, "_blank");
         setTimeout(() => {
           // If the Google Maps app is not installed or did not open, fallback to Google Maps in the browser
@@ -193,39 +182,54 @@ document.addEventListener("DOMContentLoaded", function () {
             window.open(googleMapsWebUrl, "_blank");
           }
         }, 25);
-      }
-    }, 25);
-  } else if (/iPad/i.test(navigator.userAgent)) {
-    // If on iPad, open Apple Maps web URL
-    window.open(appleMapsWebUrl, "_blank");
-  } else if (/Android/i.test(navigator.userAgent)) {
-    // If on Android, try to open Google Maps app
-    window.open(googleMapsAppUrl, "_blank");
-    setTimeout(() => {
-      // If the Google Maps app is not installed or did not open, fallback to Google Maps in the browser
-      if (!document.hidden) {
+      } else {
+        // If not on iOS or Android, open Google Maps in the browser
         window.open(googleMapsWebUrl, "_blank");
       }
-    }, 25);
-  } else {
-    // If not on iOS or Android, open Google Maps in the browser
-    window.open(googleMapsWebUrl, "_blank");
-  }
-}
+    }
 
     // Start the process by flying to the garden
     flyToGarden();
   }
 
-  displayGardenContent("Main Garden")
-    .then(() => {
-      centerOnGarden("Main Garden");
-    });
-  
+  function getQueryParams() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  return Object.fromEntries(urlParams.entries());
+}
+const queryParams = getQueryParams();
+const defaultGarden = "Main Garden";
+
+if(queryParams) {
+  const selectedGarden = queryParams.garden
+  ? decodeURIComponent(queryParams.garden)
+  : defaultGarden;
+displayGardenContent(selectedGarden).then(() => {
+  centerOnGarden(selectedGarden);
+});
+} else {
+  displayGardenContent("Main Garden").then(() => {
+    centerOnGarden("Main Garden");
+  });}
 
 });
 
 
+
+
+
+
+// const queryParams = getQueryParams();
+// const defaultGarden = "Main Garden";
+
+// const selectedGarden = queryParams.garden
+//   ? decodeURIComponent(queryParams.garden)
+//   : defaultGarden;
+  
+
+// displayGardenContent(selectedGarden).then(() => {
+//   centerOnGarden(selectedGarden);
+// });
 
 // function onLocationFound(e) {
 
@@ -251,4 +255,3 @@ document.addEventListener("DOMContentLoaded", function () {
 //     fitSelectedRoutes: true,
 //   }).addTo(map);
 // }
-
