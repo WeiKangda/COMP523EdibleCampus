@@ -21,34 +21,40 @@
   padding-top: 5px;
 }
 
-
-/* .plant-card {
-  display: inline-block; /* Allows plant cards to be in a row */
-  /* background-color: #f8f8f8; */
-  /* padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 5px white;
-  min-width: 200px;  */
-  
-/* }  */ */
-
 .plant-grid {
   display: flex;
   flex-direction: row;
   gap: 1rem;
   margin-bottom: 1rem;
   overflow-x: auto;
-  
+  padding-left: 10rem;
 }
+
+@media only screen and (max-width: 768px) {
+  .plant-grid {
+    padding-left: 10rem;
+  }
+}
+
 
 .plant-card {
   flex: 0 0 auto; /* Prevents plant cards from shrinking */
-  /* background-color: #f8f8f8; */
+  display: inline-block; /* Allows plant cards to be in a row */
+  background-color: #563c5b;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  min-width: 200px; /* Adjust this value to make cards wider */
-  max-width: 400px;
+  min-width: 200px;
+  max-width: 350px;
+  
+  
+}
+
+@media only screen and (max-width: 768px) {
+  .plant-card {
+    min-width: 50%; /* Make the card take up the full width on mobile screens */
+    font-size: 14px; /* Decrease the font size if necessary */
+  }
 }
 
 .plant-card img {

@@ -100,3 +100,32 @@ const main_garden = L.polygon([
 //   console.log(`Garden name from URL: ${gardenName}`);
 // } 
 
+// const plantGrid = document.querySelector('.plant-grid');
+// let isMouseDown = false;
+// let startX;
+// let scrollLeft;
+
+// plantGrid.addEventListener('mousedown', (e) => {
+//   isMouseDown = true;
+//   plantGrid.classList.add('active');
+//   startX = e.pageX - plantGrid.offsetLeft;
+//   scrollLeft = plantGrid.scrollLeft;
+// });
+
+// plantGrid.addEventListener('mouseleave', () => {
+//   isMouseDown = false;
+//   plantGrid.classList.remove('active');
+// });
+
+// plantGrid.addEventListener('mouseup', () => {
+//   isMouseDown = false;
+//   plantGrid.classList.remove('active');
+// });
+
+// plantGrid.addEventListener('mousemove', (e) => {
+//   if (!isMouseDown) return;
+//   e.preventDefault();
+//   const x = e.pageX - plantGrid.offsetLeft;
+//   const walk = x - startX;
+//   plantGrid.scrollLeft = scrollLeft - walk;
+// });
