@@ -134,6 +134,11 @@ app.get('/gardenContent', (req, res) => {
 });
 
 
+// Serve the owl.carousel.min.css file
+app.get('/css/owl.carousel.min.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'node_modules/owl.carousel/dist/assets/owl.carousel.min.css'));
+});
+
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });

@@ -8,15 +8,25 @@
 
   <script src="lib/xlsx.full.min.js"></script>
 
-  <link
+  <!-- <link
     rel="stylesheet"
     href="https://unpkg.com/swiper/swiper-bundle.min.css"
   />
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+  <!-- <script src="js/swiperInit.js"></script> -->
+  
+  <link rel="stylesheet" href="/css/owl.carousel.min.css">
 
-  <script src="js/swiperInit.js"></script>
+ 
 
   <link href="css/gardenContent.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -45,7 +55,7 @@
   <!-- google recaptcha  -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-  
+
 </head>
 <!-- End of Head section -->
 
@@ -85,7 +95,8 @@
         <a href="#" class="garden-button" data-garden="Graham Garden" id="centerGraham">Graham</a>
         <a href="#" class="garden-button" data-garden="Stacy Garden" id="centerStacy">Stacy</a>
         <a href="#" class="garden-button" data-garden="Davis Garden" id="centerDavis">Davis</a>
-        <a href="#" class="garden-button" data-garden="Rams Head Plaza Garden" id="centerRamsHeadPlaza">Rams Head Plaza</a>
+        <a href="#" class="garden-button" data-garden="Rams Head Plaza Garden" id="centerRamsHeadPlaza">Rams Head
+          Plaza</a>
         <a href="#" class="garden-button" data-garden="SASB Plaza Garden" id="centerSASBPlaza">SASB Plaza</a>
         <a href="#" class="garden-button" data-garden="Hardin Garden" id="centerHardin">Hardin</a>
         <a href="#" class="garden-button" data-garden="Fetzer Garden" id="centerFetzer">Fetzer</a>
@@ -95,31 +106,39 @@
 
   <!-- Map section -->
   <div id="map"></div>
-  <script  src="js/map.js"></script>
+  <script src="js/map.js"></script>
 
   <!-- <script  type="module" src="js/indexScript.js"></script> -->
 
-  <script type="module" src="js/menu_popup.js" ></script>
+  <script type="module" src="js/menu_popup.js"></script>
+
   <!-- Description section -->
-  <div id="description">
+  <!-- <div id="description">
     <div class="container">
       <div id="gardenContent">
         <div class="garden-title"></div>
         <div class="swiper-container">
           <div class="swiper-wrapper plant-grid">
-            
-                <h3>description area</h3>
-
-             
-            
+            <h3>description area</h3>
           </div>
         </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div id="description">
+    <div class="container">
+      <div id="gardenContent">
+        <div class="garden-title"><h3>description area</h3></div>
+        <div class="owl-carousel">
+          
+          
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-
   
+
 
 
   <!-- Comments section -->

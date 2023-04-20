@@ -1,14 +1,16 @@
+@import '/css/owl.carousel.min.css';
+
 #description {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+
+
+  
+
   height: auto;
   background-color: #563c5b;
   color: #fff;
   margin-bottom: 0;
-  overflow: auto; /* Add scrollbars if the content overflows */
-  padding: 1rem; /* Add some padding around the content */
+  
+
 }
 
 /* Set font family and color for h3 and p in description section */
@@ -21,43 +23,27 @@
   padding-top: 5px;
 }
 
-.plant-grid {
+.owl-carousel .owl-item {
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  overflow-x: auto;
-  padding-left: 10rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-@media only screen and (max-width: 768px) {
-  .plant-grid {
-    padding-left: 10rem;
-  }
-}
-
-
-.plant-card {
-  flex: 0 0 auto; /* Prevents plant cards from shrinking */
-  display: inline-block; /* Allows plant cards to be in a row */
+.owl-carousel .plant-card {
   background-color: #563c5b;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  min-width: 200px;
+  min-width: 70%;
   max-width: 350px;
-  
-  
+  word-wrap: break-word; /* Wrap long words onto the next line */
+  overflow-wrap: break-word; /* Wrap long words that cannot be broken */
+  white-space: pre-wrap; /* Preserve whitespace and line breaks while wrapping text */
 }
 
-@media only screen and (max-width: 768px) {
-  .plant-card {
-    min-width: 50%; /* Make the card take up the full width on mobile screens */
-    font-size: 14px; /* Decrease the font size if necessary */
-  }
-}
 
-.plant-card img {
+.owl-carousel .plant-card img {
   display: block;
   margin: 0 auto;
   max-width: 100%;
