@@ -6,7 +6,7 @@ body {
 
 /* Set height and background color for top section */
 #top {
-  height: 50px;
+  height: 35px;
   background-color: #563c5b;
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@ body {
 
 /* Set height and adjust logo size for navbar image */
 #navbar img {
-  height: 15vh;
+  height: 10vh;
   max-width: 100%;
 }
 
@@ -89,7 +89,7 @@ h1 {
 
 /* Set height, background color, display, align-items and justify-content for about section */
 #about {
-  height: 20vh;
+  height: auto;
   background-color: #563c5b;
   display: flex;
   align-items: center;
@@ -105,32 +105,50 @@ p {
   text-align: center;
 }
 
-/*trying out some stuff */
-/* .overlay {
-  font-family: "Roboto", sans-serif;
-  height: 100%;
-  width: 0;
+
+/* Modal styles */
+.modal {
+  display: none;
   position: fixed;
-  top: 0;
+  z-index: 2000;
   left: 0;
-  background-color: #fff;
-  overflow-x: hidden;
-  transition: 0.5s;
-}
-
-.overlay-content {
-  position: relative;
+  top: 0;
   width: 100%;
-  text-align: center;
-  margin-top: 30px;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.overlay a {
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
   text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-} */
+  cursor: pointer;
+}
 
+.modal h3 {
+  color: black;
+}
 
+.modal p {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: black;
+}

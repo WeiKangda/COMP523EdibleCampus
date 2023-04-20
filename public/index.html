@@ -3,7 +3,7 @@
 <!-- Start of Head section -->
 
 <head>
-  <title>Edible Graden UNC</title>
+  <title>Edible Garden UNC</title>
   <meta charset="UTF-8" />
 
   <script src="lib/xlsx.full.min.js"></script>
@@ -14,17 +14,18 @@
   />
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
   <!-- <script src="js/swiperInit.js"></script> -->
-  
+
   <link rel="stylesheet" href="/css/owl.carousel.min.css">
 
- 
+
 
   <link href="css/gardenContent.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 
 
@@ -83,9 +84,46 @@
     </div>
   </div>
 
+  <!-- Modal for instructions -->
+  <div id="instructionsModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Welcome to the Edible Garden UNC (M)App!</h3>
+      <p>
+        This application allows you to explore different gardens and learn about the plants in each garden, their
+        harvest information, and some delicious recipes. Here's how to get started:
+      </p>
+
+      <p>1. Use the interactive map to select a garden by choosing a garden from the
+        dropdown menu.</p>
+      <p>
+        2. When you select a garden from the dropdown menu, the map will center on the garden with a popup label, and a
+        "Navigate with Google Maps" button will appear.</p>
+      <P>3. Click the "Navigate with Google Maps" button to get a routing path to the selected garden using the Google
+        Maps app.</P>
+      <p>4. Once you've selected a garden, the plants in that garden will be displayed below the map in a horizontal
+        carousel.</p>
+      <p>5. Drag the carousel horizontally to view more plants in the selected garden.</p>
+      <p>6. To learn more about a specific plant, read the provided harvest information and try out the suggested
+        recipes.</p>
+      <p>7. To explore a different garden, simply choose another garden
+        from the dropdown menu, and the plants for the new garden will be displayed.</p>
+      <p>8. Share your thoughts, feedback, or questions about the gardens and plants by leaving a comment in the comment
+        area.</p>
+      <p>We hope you enjoy using the Edible Garden UNC (M)App and discover new plants and recipes to try in your own
+        garden. Don't forget to share your experiences with others in the comment section. Happy gardening!</p>
+    </div>
+  </div>
+
+
+
+
   <!-- Navbar section -->
+  <!-- <div id="navbar">
+    <a href="https://ncbg.unc.edu/" alt="eclogo"><img src="./img/eclogo.jpg" /></a> -->
   <div id="navbar">
-    <a href="https://ncbg.unc.edu/" alt="eclogo"><img src="./img/eclogo.jpg" /></a>
+    <img src="./img/eclogo.jpg" alt="eclogo" id="logo" />
+
 
     <div class="dropdown">
       <button class="dropbtn" id="menuButton">Choose Gardens</button>
@@ -104,6 +142,8 @@
     </div>
   </div>
 
+  <script src="js/modal.js"></script>
+
   <!-- Map section -->
   <div id="map"></div>
   <script src="js/map.js"></script>
@@ -112,34 +152,15 @@
 
   <script type="module" src="js/menu_popup.js"></script>
 
-  <!-- Description section -->
-  <!-- <div id="description">
-    <div class="container">
-      <div id="gardenContent">
-        <div class="garden-title"></div>
-        <div class="swiper-container">
-          <div class="swiper-wrapper plant-grid">
-            <h3>description area</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <div id="description">
     <div class="container">
       <div id="gardenContent">
-        <div class="garden-title"><h3>description area</h3></div>
+        <div class="garden-title"></div>
         <div class="owl-carousel">
-          
-          
         </div>
       </div>
     </div>
   </div>
-  
-
-
 
   <!-- Comments section -->
   <div id="comments-section">
@@ -163,8 +184,6 @@
 
   <script src="js/submitComment.js" type="module"></script>
 
-  <!-- <script src = 'js/comment.js'></script> -->
-
   <!-- About section -->
   <div id="about">
     <div class="container">
@@ -175,6 +194,7 @@
         campus. The map shows the locations of edible plants and allows users
         to add comments and information about the plants.
       </p>
+
     </div>
   </div>
 </body>
