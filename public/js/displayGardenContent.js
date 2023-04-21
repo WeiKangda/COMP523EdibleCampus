@@ -11,7 +11,7 @@ export async function displayGardenContent(gardenName) {
   const gardenTitleDiv = document.querySelector("#gardenContent .garden-title");
   gardenTitleDiv.innerHTML = `
   <h3>${gardenName} Plants</h3>
-  <span class="draggable-hint">Drag horizontally to view more plants. All pictures are from unsplash.com and are free to use by its policy</span>
+  <span class="draggable-hint">Drag the plants' images horizontally below to view more plants. All pictures used in this website are from unsplash.com and are free to use by its policy.</span>
   
   `;
 
