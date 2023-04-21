@@ -134,6 +134,25 @@ app.get('/gardenContent', (req, res) => {
 });
 
 
+// Serve the owl.carousel.min.css file
+app.get('/css/owl.carousel.min.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'node_modules/owl.carousel/dist/assets/owl.carousel.min.css'));
+});
+
+app.get('/css/owl.theme.css', (req, res) => {
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'node_modules/owl.carousel/dist/assets/owl.theme.default.css'));
+});
+
+app.get('/js/owl.carousel.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'node_modules/owl.carousel/dist/owl.carousel.js'));
+});
+
+app.get('/js/jquery.js', (req, res) => {
+  res.setHeader('Content-Type', 'application/javascript');
+  res.sendFile(path.join(__dirname, 'node_modules/jquery/dist/jquery.min.js'));
+});
+
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });

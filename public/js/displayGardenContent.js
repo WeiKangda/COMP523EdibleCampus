@@ -7,13 +7,16 @@ export async function displayGardenContent(gardenName) {
   const sheet = workbook.Sheets[gardenName];
   const sheetData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-  // const gardenContentDiv = document.getElementById("gardenContent");
-  const gardenContentDiv = document.querySelector("#gardenContent .plant-grid");
+  const gardenContentDiv = document.querySelector("#gardenContent .owl-carousel");
   const gardenTitleDiv = document.querySelector("#gardenContent .garden-title");
   gardenTitleDiv.innerHTML = `
   <h3>${gardenName} Plants</h3>
-  <span class="draggable-hint">Drag horizontally to view more plants</span>`;
-  gardenContentDiv.innerHTML = ""; // Clear previous content
+  <span class="draggable-hint">Drag the plants' images horizontally below to view more plants. All pictures used in this website are from unsplash.com and are free to use by its policy.</span>
+  
+  `;
+
+  // Clear the previous content
+  gardenContentDiv.innerHTML = "";
 
   sheetData.slice(1).forEach((row) => {
     const plantName = row[0];
@@ -25,10 +28,10 @@ export async function displayGardenContent(gardenName) {
     const recipe2_formated = recipe2.replace(/\n/g, '<br>');
 
     const plantInfo = `
-    <div class="plant-card swiper-slide">
+    <div class="plant-card">
     
     <h3>${plantName}</h3>
-    <img src="${plantImage}" alt="${plantName}" width="150">
+    <img src="${plantImage}" alt="${plantName}">
     <p>Harvest Info: ${harvestInfo}</p>
     <p>Recipe 1: ${recipe1_formated}</p>
     <p>Recipe 2: ${recipe2_formated}</p>
@@ -37,4 +40,29 @@ export async function displayGardenContent(gardenName) {
     `;
     gardenContentDiv.innerHTML += plantInfo;
   });
+
+  // Destroy the existing Owl Carousel instance
+  if ($(".owl-carousel").data('owl.carousel')) {
+    $(".owl-carousel").owlCarousel('destroy');
+  }
+
+  $(document).ready(function () {
+    $(".owl-carousel").owlCarousel({
+      loop: false,
+      margin: 10,
+      nav: false,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 5
+        }
+      }
+    });
+  });
 }
+
