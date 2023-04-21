@@ -22,7 +22,7 @@ cd COMP523EdibleCampus
 
 4. Install the project dependencies:
 
-npm install express xlsx multer express-rate-limit axios
+npm install express xlsx multer express-rate-limit axios jquery owl-carousel
 
 
 5. Run the application:
