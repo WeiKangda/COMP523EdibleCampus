@@ -1,5 +1,5 @@
 import { displayGardenContent } from "./displayGardenContent.js";
-import { initiateNavigation } from "./iniNav.js";
+import { addNavigateButtonEventListener } from "./iniNav.js";
 
 document.addEventListener("DOMContentLoaded", function () {
    
@@ -118,31 +118,33 @@ document.addEventListener("DOMContentLoaded", function () {
       // Update the URL with the selected garden
       history.pushState({}, "", `?garden=${encodeURIComponent(garden)}`);
 
+      addNavigateButtonEventListener(gardenCoords);
+}
       // Add event listener for the navigate button
-      document
-        .getElementById("navigateButton")
-        .addEventListener("click", () => {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-              (position) => {
-                const userLatitude = position.coords.latitude;
-                const userLongitude = position.coords.longitude;
-                initiateNavigation(userLatitude, userLongitude, gardenCoords);
-              },
-              (error) => {
-                console.error("Error getting user location:", error);
-                alert(
-                  "Unable to get your current location. Please check your device settings and try again."
-                );
-              }
-            );
-          } else {
-            alert(
-              "Geolocation is not supported by your browser. Please update or try a different browser."
-            );
-          }
-        });
-    }
+      // document
+      //   .getElementById("navigateButton")
+      //   .addEventListener("click", () => {
+      //     if (navigator.geolocation) {
+      //       navigator.geolocation.getCurrentPosition(
+      //         (position) => {
+      //           const userLatitude = position.coords.latitude;
+      //           const userLongitude = position.coords.longitude;
+      //           initiateNavigation(userLatitude, userLongitude, gardenCoords);
+      //         },
+      //         (error) => {
+      //           console.error("Error getting user location:", error);
+      //           alert(
+      //             "Unable to get your current location. Please check your device settings and try again."
+      //           );
+      //         }
+      //       );
+      //     } else {
+      //       alert(
+      //         "Geolocation is not supported by your browser. Please update or try a different browser."
+      //       );
+      //     }
+      //   });
+    
     
     // function initiateNavigation(userLatitude, userLongitude) {
     //   const latitude = gardenCoords[0];

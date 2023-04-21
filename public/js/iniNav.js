@@ -1,7 +1,29 @@
 
+export function addNavigateButtonEventListener(gardenCoords) {
+    document.getElementById("navigateButton").addEventListener("click", () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const userLatitude = position.coords.latitude;
+            const userLongitude = position.coords.longitude;
+            initiateNavigation(userLatitude, userLongitude, gardenCoords);
+          },
+          (error) => {
+            console.error("Error getting user location:", error);
+            alert(
+              "Unable to get your current location. Please check your device settings and try again."
+            );
+          }
+        );
+      } else {
+        alert(
+          "Geolocation is not supported by your browser. Please update or try a different browser."
+        );
+      }
+    });
+  }
 
-
-export function initiateNavigation(userLatitude, userLongitude, gardenCoords) {
+function initiateNavigation(userLatitude, userLongitude, gardenCoords) {
     const latitude = gardenCoords[0];
     const longitude = gardenCoords[1];
 
@@ -42,8 +64,3 @@ export function initiateNavigation(userLatitude, userLongitude, gardenCoords) {
         window.open(googleMapsWebUrl, "_blank");
     }
 }
-
-
-
-
-
