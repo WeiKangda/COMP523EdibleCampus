@@ -1,6 +1,55 @@
 import { displayGardenContent } from "./displayGardenContent.js";
 import { addNavigateButtonEventListener } from "./iniNav.js";
 
+const gardens = {
+  "Main Garden": {
+    coords: [35.911437, -79.047336],
+    element: main_garden,
+    imageSrc: "./img/main_garden.png",
+  },
+  "Lenoir Garden": {
+    coords: [35.910299, -79.048571],
+    element: lenoir,
+    imageSrc: "./img/Lenoir.png",
+  },
+  "Graham Garden": {
+    coords: [35.913114, -79.047187],
+    element: graham,
+    imageSrc: "./img/graham.png",
+  },
+  "Stacy Garden": {
+    coords: [35.912904, -79.045814],
+    element: stacy,
+    imageSrc: "./img/Stacy.png",
+  },
+  "Davis Garden": {
+    coords: [35.910711, -79.048374],
+    element: davis,
+    imageSrc: "./img/Davis.png",
+  },
+  "Rams Head Plaza Garden": {
+    coords: [35.905647, -79.045832],
+    element: rams_head_plaza,
+    imageSrc: "./img/RamsHeadPlaza.png",
+  },
+  "SASB Plaza Garden": {
+    coords: [35.904367, -79.044742],
+    element: SASB_plaza,
+    imageSrc: "./img/SASBPlaza.png",
+  },
+  "Hardin Garden": {
+    coords: [35.903815, -79.046311],
+    element: hardin,
+    imageSrc: "./img/Hardin.png",
+  },
+  "Fetzer Garden": {
+    coords: [35.909124, -79.04647],
+    element: fetzer,
+    imageSrc: "./img/Fetzer.png",
+  },
+};
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const menuButton = document.getElementById("menuButton");
   const dropdownContent = document.querySelector(".dropdown-content");
@@ -19,11 +68,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Add event listeners to each garden element
+  for (const gardenName in gardens) {
+    const garden = gardens[gardenName];
+    garden.element.on("click", async () => {
+      centerOnGarden(gardenName);
+      await displayGardenContent(gardenName);
+    });
+  }
+
   dropdownContent.addEventListener("click", async function (event) {
     const target = event.target;
     if (target.classList.contains("garden-button")) {
       const garden = target.getAttribute("data-garden");
-
       centerOnGarden(garden);
       await displayGardenContent(garden);
       dropdownContent.style.display = "none";
@@ -31,59 +88,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function centerOnGarden(garden) {
-    // let gardenCoords;
-    // let gardenName;
-    let gardenCoords, gardenElement, gardenName, gardenImageSrc;
 
-   
-
-    if (garden === "Main Garden") {
-      gardenCoords = [35.911437, -79.047336];
-      gardenElement = main_garden;
-      gardenName = "Main Garden";
-      gardenImageSrc = "./img/main_garden.png";
-    } else if (garden === "Lenoir Garden") {
-      gardenCoords = [35.910299, -79.048571];
-      gardenElement = lenoir;
-      gardenName = "Lenoir Garden";
-      gardenImageSrc = "./img/Lenoir.png";
-      // offset = [15, -10];
-    } else if (garden === "Graham Garden") {
-      gardenCoords = [35.913114, -79.047187];
-      gardenElement = graham;
-      gardenName = "Graham Garden";
-      gardenImageSrc = "./img/graham.png";
-    } else if (garden === "Stacy Garden") {
-      gardenCoords = [35.912904, -79.045814];
-      gardenElement = stacy;
-      gardenName = "Stacy Garden";
-      gardenImageSrc = "./img/Stacy.png";
-    } else if (garden === "Davis Garden") {
-      gardenCoords = [35.910711, -79.048374];
-      gardenElement = davis;
-      gardenName = "Davis Garden";
-      gardenImageSrc = "./img/Davis.png";
-    } else if (garden === "Rams Head Plaza Garden") {
-      gardenCoords = [35.905647, -79.045832];
-      gardenElement = rams_head_plaza;
-      gardenName = "Rams Head Plaza Garden";
-      gardenImageSrc = "./img/RamsHeadPlaza.png";
-    } else if (garden === "SASB Plaza Garden") {
-      gardenCoords = [35.904367, -79.044742];
-      gardenElement = SASB_plaza;
-      gardenName = "SASB Plaza Garden";
-      gardenImageSrc = "./img/SASBPlaza.png";
-    } else if (garden === "Hardin Garden") {
-      gardenCoords = [35.903815, -79.046311];
-      gardenElement = hardin;
-      gardenName = "Hardin Garden";
-      gardenImageSrc = "./img/Hardin.png";
-    } else if (garden === "Fetzer Garden") {
-      gardenCoords = [35.909124, -79.04647];
-      gardenElement = fetzer;
-      gardenName = "Fetzer Garden";
-      gardenImageSrc = "./img/Fetzer.png";
+    const gardenInfo = gardens[garden];
+    if (!gardenInfo) {
+      console.error(`Garden ${garden} not found.`);
+      return;
     }
+
+    const { coords: gardenCoords, element: gardenElement, imageSrc: gardenImageSrc } = gardenInfo;
+    const gardenName = garden;
 
     map.closePopup();
     const currentZoom = map.getZoom();
@@ -92,15 +105,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function flyToGarden() {
       // Fly out to a wider view before flying to the garden location
-      return map.flyTo(map.getCenter(), zoomOutLevel, { animate: true, duration: 0.5 });
+      return map.flyTo(map.getCenter(), zoomOutLevel, {
+        animate: true,
+        duration: 0.5,
+      });
     }
-  
+
     function flyToGardenCoords() {
       map
         .flyTo(gardenCoords, zoomInLevel, { animate: true, duration: 0.5 })
-        .once("moveend", () => showGardenPopup(garden, gardenElement, gardenCoords, gardenName, gardenImageSrc));
+        .once("moveend", () =>
+          showGardenPopup(
+            garden,
+            gardenElement,
+            gardenCoords,
+            gardenName,
+            gardenImageSrc
+          )
+        );
     }
-  
+
     // Start the process by flying to the garden
     flyToGarden().once("moveend", flyToGardenCoords);
   }
@@ -127,8 +151,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-function showGardenPopup(garden, gardenElement, gardenCoords, gardenName, gardenImageSrc) {
+function showGardenPopup(
+  garden,
+  gardenElement,
+  gardenCoords,
+  gardenName,
+  gardenImageSrc
+) {
   gardenElement.bindPopup(
     `<img src="${gardenImageSrc}" alt="${gardenName}" class="popup-image">
     <p class="popup-text">${gardenName}</p>
@@ -138,8 +167,8 @@ function showGardenPopup(garden, gardenElement, gardenCoords, gardenName, garden
 
   gardenElement.openPopup();
 
- // Update the URL with the selected garden
-      history.pushState({}, "", `?garden=${encodeURIComponent(garden)}`);
+  // Update the URL with the selected garden
+  history.pushState({}, "", `?garden=${encodeURIComponent(garden)}`);
 
   addNavigateButtonEventListener(gardenCoords);
 }
