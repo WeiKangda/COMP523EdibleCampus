@@ -49,7 +49,6 @@ const gardens = {
   },
 };
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const menuButton = document.getElementById("menuButton");
   const dropdownContent = document.querySelector(".dropdown-content");
@@ -88,14 +87,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function centerOnGarden(garden) {
-
     const gardenInfo = gardens[garden];
     if (!gardenInfo) {
       console.error(`Garden ${garden} not found.`);
       return;
     }
 
-    const { coords: gardenCoords, element: gardenElement, imageSrc: gardenImageSrc } = gardenInfo;
+    const {
+      coords: gardenCoords,
+      element: gardenElement,
+      imageSrc: gardenImageSrc,
+    } = gardenInfo;
     const gardenName = garden;
 
     map.closePopup();
