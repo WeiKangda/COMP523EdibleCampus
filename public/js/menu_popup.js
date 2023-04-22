@@ -86,6 +86,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+   // Add event listeners to each garden link element
+   const gardenLinks = document.querySelectorAll('.garden-link');
+   gardenLinks.forEach(link => {
+     link.addEventListener('click', async event => {
+       const gardenName = event.target.getAttribute('data-garden');
+       centerOnGarden(gardenName);
+       await displayGardenContent(gardenName);
+     });
+   });
+
   function centerOnGarden(garden) {
     const gardenInfo = gardens[garden];
     if (!gardenInfo) {
@@ -174,17 +184,6 @@ function showGardenPopup(
 
   addNavigateButtonEventListener(gardenCoords);
 }
-
-// const queryParams = getQueryParams();
-// const defaultGarden = "Main Garden";
-
-// const selectedGarden = queryParams.garden
-//   ? decodeURIComponent(queryParams.garden)
-//   : defaultGarden;
-
-// displayGardenContent(selectedGarden).then(() => {
-//   centerOnGarden(selectedGarden);
-// });
 
 // function onLocationFound(e) {
 

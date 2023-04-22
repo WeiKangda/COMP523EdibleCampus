@@ -15,6 +15,8 @@
 
   <link href="css/gardenContent.css" rel="stylesheet" />
 
+
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin="" />
@@ -98,6 +100,8 @@
         area.</p>
       <p>We hope you enjoy using the Edible Garden UNC (M)App and discover new plants and recipes to try in your own
         garden. Don't forget to share your experiences with others in the comment section. Happy gardening!</p>
+      <p>Remember, you can always access these help instructions by clicking on the 'Edible Garden UNC' logo in the
+        top-right corner of the page.</p>
     </div>
   </div>
 
@@ -105,8 +109,6 @@
 
 
   <!-- Navbar section -->
-  <!-- <div id="navbar">
-    <a href="https://ncbg.unc.edu/" alt="eclogo"><img src="./img/eclogo.jpg" /></a> -->
   <div id="navbar">
     <img src="./img/eclogo.jpg" alt="eclogo" id="logo" />
 
@@ -126,6 +128,17 @@
         <a href="#" class="garden-button" data-garden="Fetzer Garden" id="centerFetzer">Fetzer</a>
       </div>
     </div>
+
+    <!-- Add garden links for wider screens -->
+    <a href="#" class="garden-link" data-garden="Main Garden">Main Garden</a>
+    <a href="#" class="garden-link" data-garden="Lenoir Garden">Lenoir Garden</a>
+    <a href="#" class="garden-link" data-garden="Graham Garden">Graham Garden</a>
+    <a href="#" class="garden-link" data-garden="Stacy Garden">Stacy Garden</a>
+    <a href="#" class="garden-link" data-garden="Davis Garden">Davis Garden</a>
+    <a href="#" class="garden-link" data-garden="Rams Head Plaza Garden">Rams Head Plaza Garden</a>
+    <a href="#" class="garden-link" data-garden="SASB Plaza Garden">SASB Plaza Garden</a>
+    <a href="#" class="garden-link" data-garden="Hardin Garden">Hardin Garden</a>
+    <a href="#" class="garden-link" data-garden="Fetzer Garden">Fetzer Garden</a>
   </div>
 
   <script src="js/modal.js"></script>
@@ -176,7 +189,7 @@
     <div class="container">
       <h3>About the UNC Edible Campus Map</h3>
       <p>
-        The UNC Edible Campus Map is a project that aims to provide
+        The UNC Edible UNC (M)App is a project that aims to provide
         information about edible plants available on the UNC Chapel Hill
         campus. The map shows the locations of edible plants and allows users
         to add comments and information about the plants.
