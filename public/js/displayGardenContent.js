@@ -11,7 +11,7 @@ export async function displayGardenContent(gardenName) {
   const gardenTitleDiv = document.querySelector("#gardenContent .garden-title");
   gardenTitleDiv.innerHTML = `
   <h3>${gardenName} Plants</h3>
-  <span class="draggable-hint">Drag the plants' images horizontally below to view more plants. All pictures used in this website are from unsplash.com and are free to use by its policy.</span>
+  <span class="draggable-hint">Drag the plants' images horizontally below to view more plants. All pictures used in this website are from unsplash.com and are free to use by its policy. Please share your thoughts in the comment area below the plant cards.</span>
   
   `;
 
@@ -35,7 +35,6 @@ export async function displayGardenContent(gardenName) {
     <p>Harvest Info: ${harvestInfo}</p>
     <p>Recipe 1: ${recipe1_formated}</p>
     <p>Recipe 2: ${recipe2_formated}</p>
-  
   </div>
     `;
     gardenContentDiv.innerHTML += plantInfo;
@@ -59,7 +58,7 @@ export async function displayGardenContent(gardenName) {
           items: 3
         },
         1000: {
-          items: 5
+          items: 4
         }
       }
     });

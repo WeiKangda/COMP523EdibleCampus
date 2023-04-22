@@ -1,4 +1,3 @@
-
 const uncCampusBounds = [
   [35.87887, -79.092428], // Southwest corner coordinates
   [35.953868, -79.003511], // Northeast corner coordinates
@@ -91,5 +90,3 @@ const main_garden = L.polygon([
   [35.91163, -79.047447],
   [35.911545, -79.047662],
 ]).addTo(map);
-
-
