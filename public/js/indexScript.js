@@ -132,6 +132,11 @@ const main_garden = L.polygon([
 var polyLayer = L.layerGroup(
   [main_garden, fetzer, hardin, SASB_plaza, rams_head_plaza, lenoir, davis, stacy, graham]
 ).addTo(map);
+
+// iterate over all the polygons in the layer and set their name to 'joe'
+polyLayer.eachLayer(function(layer) {
+  layer.setStyle({color: 'red'});
+});
 /*
 var pop = L.popup()
   .bindPopup("Main Garden.")

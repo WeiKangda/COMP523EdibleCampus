@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  /*
+  
   dropdownContent.addEventListener("click", async function (event) {
     const target = event.target;
     if (target.classList.contains("garden-button")) {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dropdownContent.style.display = "none";
     }
   });
-  */
+  
 
   function centerOnGarden(garden) {
 
