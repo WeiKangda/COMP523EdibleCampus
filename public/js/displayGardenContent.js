@@ -10,7 +10,7 @@ export async function displayGardenContent(gardenName) {
   const gardenContentDiv = document.querySelector("#gardenContent .owl-carousel");
   const gardenTitleDiv = document.querySelector("#gardenContent .garden-title");
   gardenTitleDiv.innerHTML = `
-  <h3>${gardenName} Plants</h3>
+  <h4>${gardenName} Plants</h4>
   <span class="draggable-hint">Drag the plants' images horizontally below to view more plants. All pictures used in this website are from unsplash.com and are free to use by its policy. Please share your thoughts in the comment area below the plant cards.</span>
   
   `;

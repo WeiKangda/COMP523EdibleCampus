@@ -4,12 +4,24 @@
   color: #fff;
   margin-bottom: 0;
 }
-
+#description h4{
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  margin-top: 0;
+  margin-bottom: 2px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+#description span{
+  margin-bottom: 10px;
+}
 /* Set font family and color for h3 and p in description section */
 #description h3,
 #description p {
   font-family: "Roboto", sans-serif;
-  color: #fff;
+  color: #563c5b;
   text-align: center;
   margin-top: 0;
   padding-top: 15px;
@@ -23,7 +35,7 @@
 }
 
 .owl-carousel .plant-card {
-  background-color: #563c5b;
+  background-color: white; /* #563c5b*/ 
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
