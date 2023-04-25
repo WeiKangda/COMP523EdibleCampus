@@ -128,4 +128,15 @@
   .garden-link {
     display: inline-block;
   }
+
+}
+@media (max-width: 1025px) {
+  .dropdown {
+    display: inline-block;
+  }
+
+  .garden-link {
+    display: none;
+  }
+  
 }
