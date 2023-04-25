@@ -99,18 +99,26 @@
 
 /* Add this section for garden links on wider screens */
 .garden-link {
-  display: none;
-  color: white;
-  background-color: #563c5b;
+  display: inline-block; 
+  text-align: center;
+  color: #563c5b;
   text-decoration: none;
-  font-size: 16px;
-  padding: 16px;
+  padding: 30px 16px 0px 16px;
+  border-radius: 10px;
 }
 
 .garden-link:hover {
-  background-color: #7c598c;
+  transition: 0.4s;
+  color: white;
+  background-color: #563c5b; /* 7c598c */
 }
 
+.garden-link:active{
+  transition: 0s;
+  background-color: #46304A;
+  color: #D9D9D9;
+  border: 3px solid #563c5b;
+}
 /* Responsive design for screens wider than 1024px */
 @media (min-width: 1025px) {
   .dropdown {
