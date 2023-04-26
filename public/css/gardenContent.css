@@ -4,6 +4,9 @@
   color: #fff;
   margin-bottom: 0;
 }
+#description img{
+  border-radius: 5px;
+}
 #description h4{
   font-family: "Roboto", sans-serif;
   color: white;
@@ -18,13 +21,35 @@
   margin-bottom: 10px;
 }
 /* Set font family and color for h3 and p in description section */
-#description h3,
 #description p {
   font-family: "Roboto", sans-serif;
   color: #563c5b;
   text-align: center;
   margin-top: 0;
+}
+
+#description h3{
+  font-style: italic;
+  font-size: large;
+  font-family: "Roboto", sans-serif;
+  color: #563c5b;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#description h2{
+  font-family: "Roboto", sans-serif;
+  color: #563c5b;
+  text-align: center;
+  margin-top: 0;
   padding-top: 15px;
+}
+
+#description h4{
+  font-family: "Roboto", sans-serif;
+  color: #563c5b;
+  text-align: center;
+  margin-top: 0;
 }
 
 .owl-carousel .owl-item {

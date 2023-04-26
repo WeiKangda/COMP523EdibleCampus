@@ -30,11 +30,12 @@ export async function displayGardenContent(gardenName) {
     const plantInfo = `
     <div class="plant-card">
     
-    <h3>${plantName}</h3>
+    <h2>${plantName}</h2>
     <img src="${plantImage}" alt="${plantName}">
-    <p>Harvest Info: ${harvestInfo}</p>
-    <p>Recipe 1: ${recipe1_formated}</p>
-    <p>Recipe 2: ${recipe2_formated}</p>
+    <h3>Harvest Info:</h3>
+    <p>${harvestInfo}</p>
+    <h2>Recipe 1:</h2> <p>${recipe1_formated}</p>
+    <h2>Recipe 2:</h2> <p>${recipe2_formated}</p>
   </div>
     `;
     gardenContentDiv.innerHTML += plantInfo;

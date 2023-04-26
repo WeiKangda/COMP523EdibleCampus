@@ -6,7 +6,7 @@ body {
 
 /* Set height and background color for top section */
 #top {
-  height: 35px;
+  height: 40px;
   background-color: #563c5b;
   display: flex;
   align-items: center;
@@ -16,6 +16,7 @@ body {
 
 /* Set font family and color for social icons */
 #social-icons {
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +72,7 @@ body {
 
 /* Set height and adjust logo size for navbar image */
 #navbar img {
-  height: 15vh;
+  height: 10vh;
   max-width: 100%;
 }
 
@@ -86,25 +87,6 @@ h1 {
   font-size: 50px;
   padding: 30px;
 }
-
-/* Set height, background color, display, align-items and justify-content for about section */
-#about {
-  height: auto;
-  background-color: #563c5b;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 10px;
-}
-
-/* Set font family and color for h3 in about section */
-#about h3,
-p {
-  font-family: "Roboto";
-  color: rgb(250, 247, 247);
-  text-align: center;
-}
-
 
 /* Modal styles */
 .modal {
@@ -151,4 +133,86 @@ p {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: black;
+}
+
+#about {
+  margin-top: 20vh;
+  position: relative;
+  height: 40vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#about .about-section{
+  z-index: 1;
+  /* border: 2px solid tomato; */
+  margin: 16px;
+}
+/* Set font family and color for h3 in about section */
+#about .about-section h3 {
+  font-family: Lato,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  z-index: 1;
+  color: #563C5B;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+#about p {
+  font-family: Lato,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  color: #563C5B;
+  z-index: 1;
+  line-height: 4px;
+}
+
+#about a {
+    font-family: Lato,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    color: #007FAE;
+    z-index: 1;
+}
+
+#about #logo{
+    height: 8vw;
+    padding: 16px;
+    z-index: 1;
+}
+
+#about #pL {
+  height: 90%;
+    z-index: 0;
+    position: absolute;
+    bottom: 0;
+    left: -20px;
+}
+#about #pR {
+  height: 80%;
+    z-index: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+
+}
+
+#spacer {
+  color: white;
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+  background-color: #563C5B;
+}
+
+@media (max-width: 1246px) {
+  #about #pL {
+    display: none;
+  }
+  #about .about-section{
+    padding-right: 100px;
+  }
+
+  #about {
+    align-content: flex-start;
+}
 }
