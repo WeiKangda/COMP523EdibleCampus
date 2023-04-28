@@ -71,7 +71,7 @@ body {
 
 /* Set height and adjust logo size for navbar image */
 #navbar img {
-  height: 15vh;
+  height: 10vh;
   max-width: 100%;
 }
 
