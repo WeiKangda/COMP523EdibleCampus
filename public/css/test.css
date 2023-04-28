@@ -138,7 +138,7 @@ h1 {
 #about {
   margin-top: 20vh;
   position: relative;
-  height: auto;
+  height: 40vh;
   background-color: white;
   display: flex;
   justify-content: center;
